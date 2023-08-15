@@ -1,0 +1,200 @@
+.cross_info {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+}
+.cross_info .left {
+    display: inline-block;
+    width: auto;
+    vertical-align: top;
+}
+.cross_info .right {
+    display:inline-block;
+    width: 29%;
+    vertical-align: top;
+}
+.cross_fields {
+    display: block;
+    position: relative;
+}
+.cross_fields table {
+    border: 0px;
+    background-color: #fff;
+    border-collapse: unset;
+    border-spacing: 2px !important;
+    width: auto !important;
+}
+.cross_fields table td:before, .cross_fields table td:after {
+    margin: 0px !important;
+    box-sizing: unset !important;
+}
+.cross_fields table td {
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+    position: relative;
+    background-color: #f9efd4;
+    box-sizing: unset !important;
+    padding: 0px !important;
+}
+.cross_fields table td input {
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+    position: relative;
+    background-color: #fff;
+    border: 0px;
+}
+
+.cross_fields table td span {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    font-size: 8px;
+}
+
+.cross_fields table td.empty {
+    border: 0px;
+}
+.cross_fields table td.full {
+    border: 1px solid #000;
+    cursor: pointer;
+}
+.cross_fields table td.selected, .cross_fields table td.success {
+    background-color: #bdcf62;
+}
+
+.cross_words ul {
+    list-style: none;
+    width: 100%;
+}
+.cross_words ul li {
+    list-style: none;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+}
+.cross_words ul li.selected {
+    font-weight: bold;
+}
+.cross_words ul li .word_photo {
+    display: none;
+    position: relative;
+    width: 100%;
+}
+.cross_words ul li .word_photo .img_block {
+    width: 49%;
+    position: relative;
+    display: inline-block;
+}
+.cross_words ul li .word_photo .img_block img {
+    width: 100%;
+    border: 0px;
+}
+.popupover, .popupovererror {
+    position: fixed;
+    display: none;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.6;
+    z-index: 999;
+}
+.popupovererror {
+    z-index: 1100;
+}
+.popup_error {
+    z-index: 1200;
+    position: fixed;
+    display: none;
+    top: 20%;
+    left: 45%;
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #bdcf62;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.popup_enter_word, .popup_cross_end {
+    z-index: 1000;
+    position: fixed;
+    display: none;
+    top: 20%;
+    left: 45%;
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #bdcf62;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.popup_cross_end {
+    left: 40%;
+    width: 400px;
+}
+
+.popup_enter_word input[type="text"] {
+    margin: 20px 0px;
+}
+.popup_enter_word button {
+    color: #fff;
+    background-color: #076857;
+    border: 1px solid #076857;
+    padding: 9px 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.popup_enter_word button:hover {
+    background-color: #fff;
+    color: #076857;
+}
+
+.popup_cross_end .btns {
+    display: block;
+    position: relative;
+}
+.popup_cross_end .btns a {
+    display: inline-block;
+    margin: 0px 15px 0px 0px;    
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: #076857;
+    border: 1px solid #076857;
+    color: #fff;
+    font-size: 12px;
+    padding: 9px 8px;
+    cursor: pointer;
+}
+.popup_cross_end .btns a:hover {
+    background-color: #fff;
+    color: #076857;
+}
+@media screen and (max-width: 780px) {
+    .cross_info .left {
+        display: block;
+        width: 100%;
+        vertical-align: top;
+    }
+    .cross_info .right {
+        display: block;
+        width: 100%;
+        vertical-align: top;
+    }
+    .popup_error {
+        top: 20%;
+        left: 10%;
+        width: 300px;
+        padding: 15px;
+    }
+    .popup_enter_word, .popup_cross_end {
+        top: 20%;
+        left: 10%;
+        width: 300px;
+        padding: 15px;
+    }
+    
+}

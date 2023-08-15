@@ -1,0 +1,269 @@
+/* Fonts 
+/* -------------------------------------------------------------------------- */
+
+@font-face {
+	font-family:'OpenSans-Regular';
+	src: url('../fonts/open_sans/regular/OpenSans_gdi.eot');
+	src: url('../fonts/open_sans/regular/OpenSans_gdi.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/open_sans/regular/OpenSans_gdi.woff') format('woff'),
+		url('../fonts/open_sans/regular/OpenSans_gdi.ttf') format('truetype'),
+		url('../fonts/open_sans/regular/OpenSans_gdi.otf') format('opentype'),
+		url('../fonts/open_sans/regular/OpenSans_gdi.svg#OpenSans-Regular') format('svg');
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-FB04;
+}
+
+@font-face {
+	font-family:'OpenSans-Light';
+	src: url('../fonts/open_sans/light/OpenSans-Light_gdi.eot');
+	src: url('../fonts/open_sans/light/OpenSans-Light_gdi.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/open_sans/light/OpenSans-Light_gdi.woff') format('woff'),
+		url('../fonts/open_sans/light/OpenSans-Light_gdi.ttf') format('truetype'),
+		url('../fonts/open_sans/light/OpenSans-Light_gdi.otf') format('opentype'),
+		url('../fonts/open_sans/light/OpenSans-Light_gdi.svg#OpenSans-Light') format('svg');
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-FB04;
+}
+
+@font-face {
+	font-family:'OpenSans-Italic';
+	src: url('../fonts/open_sans/italic/OpenSans-Italic_gdi.eot');
+	src: url('../fonts/open_sans/italic/OpenSans-Italic_gdi.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/open_sans/italic/OpenSans-Italic_gdi.woff') format('woff'),
+		url('../fonts/open_sans/italic/OpenSans-Italic_gdi.ttf') format('truetype'),
+		url('../fonts/open_sans/italic/OpenSans-Italic_gdi.otf') format('opentype'),
+		url('../fonts/open_sans/italic/OpenSans-Italic_gdi.svg#OpenSans-Italic') format('svg');
+	font-weight: 400;
+	font-style: italic;
+	font-stretch: normal;
+	unicode-range: U+0020-FB04;
+}
+
+@font-face {
+	font-family:'OpenSans-Bold';
+	src: url('../fonts/open_sans/bold/OpenSans-Bold_gdi.eot');
+	src: url('../fonts/open_sans/bold/OpenSans-Bold_gdi.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/open_sans/bold/OpenSans-Bold_gdi.woff') format('woff'),
+		url('../fonts/open_sans/bold/OpenSans-Bold_gdi.ttf') format('truetype'),
+		url('../fonts/open_sans/bold/OpenSans-Bold_gdi.otf') format('opentype'),
+		url('../fonts/open_sans/bold/OpenSans-Bold_gdi.svg#OpenSans-Bold') format('svg');
+	font-weight: 700;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-FB04;
+}
+
+@font-face {
+	font-family:'OpenSans-BoldItalic';
+	src: url('../fonts/open_sans/bold_italic/OpenSans-BoldItalic_gdi.eot');
+	src: url('../fonts/open_sans/bold_italic/OpenSans-BoldItalic_gdi.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/open_sans/bold_italic/OpenSans-BoldItalic_gdi.woff') format('woff'),
+		url('../fonts/open_sans/bold_italic/OpenSans-BoldItalic_gdi.ttf') format('truetype'),
+		url('../fonts/open_sans/bold_italic/OpenSans-BoldItalic_gdi.otf') format('opentype'),
+		url('../fonts/open_sans/bold_italic/OpenSans-BoldItalic_gdi.svg#OpenSans-BoldItalic') format('svg');
+	font-weight: 700;
+	font-style: italic;
+	font-stretch: normal;
+	unicode-range: U+0020-FB04;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	font-family: 'OpenSans-Regular';
+	font-size: 14px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-top: 0;
+	color: #000;
+	font-family: 'OpenSans-Bold';
+}
+
+h1 {
+	font-size: 20px;
+	margin-bottom: 20px;
+	line-height: 20px;
+	position: relative;
+	bottom: 2px;
+}
+
+h2 {
+	font-size: 18px;
+	margin-bottom: 22px;
+}
+
+h3 {
+	font-size: 16px;
+	margin-bottom: 20px;
+}
+
+h4 {
+	font-size: 16px;
+	margin-bottom: 18px;
+	color: #818181;
+}
+
+figure {
+	display: table;
+	float: left;
+	margin: 0 30px 15px 0;
+	max-width: 100%;
+}
+
+figure img {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+figcaption {
+	display: table-caption;
+	caption-side: bottom;
+	font-family: 'OpenSans-Italic';
+	margin-top: 11px;
+}
+
+blockquote {
+	font-family: 'OpenSans-BoldItalic';
+	margin: 15px 0;
+	border-left: 3px solid #23613c;
+	padding: 2px 0 2px 18px;
+	overflow-x: hidden;
+}
+
+hr {
+	border-top: 1px dashed #23613c;
+	margin: 0 -20px 35px;
+	border-bottom: 0;
+}
+
+a {
+	color: #2c8450;
+}
+
+a:hover {
+	color: #44b070;
+}
+
+p {
+	margin: 0 0 18px 0;
+	line-height: 20px;
+}
+
+img {
+	border: 3px solid #a3c7b2;
+	float: left;
+	margin: 0 30px 15px 0;
+	max-width: 100%;
+	height: auto;
+}
+
+figure img {
+	margin: 0;
+}
+
+ol {
+	overflow-x: hidden;
+	margin-left: 10px;
+	margin-bottom: 4px;
+	padding-left: 0;
+}
+
+ul {
+	list-style: none;
+	padding-left: 0;
+	margin-bottom: 18px;
+}
+
+li {
+	margin-bottom: 14px;
+	position: relative;
+}
+
+ul li {
+	overflow-x: hidden;
+	padding-left: 20px;
+	margin-left: 10px;
+}
+
+ol li {
+	list-style-position: inside;
+}
+
+ul > li:before {
+	content: "";
+	display: inline-block;
+	height: 6px;
+	width: 6px;
+	background: #d1d1d1;
+	border-radius: 50%;
+	position: absolute;
+	left: 0;
+	top: 7px;
+}
+
+table {
+	width: 100%;
+	margin-bottom: 18px;
+}
+
+td,
+th {
+	border: 1px solid #23613c;
+	padding: 12px 20px;
+}
+
+th {
+	text-align: left;
+	font-weight: normal;
+	background: #e9f0ec;
+}
+
+b {
+	font-family: 'OpenSans-Bold';
+	color: #000;
+}
+
+a b {
+	color: inherit;
+}
+
+/* form elements */
+
+input[type="text"],
+input[type="password"],
+textarea {
+	width: 100%;
+	height: 29px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: 1px solid #c6c6c6;
+	padding: 0 7px;
+	transition: border .3s;
+}
+
+textarea {
+	max-width: 100%;
+	height: 85px;
+	padding: 7px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+	border-color: #44b070;
+	outline: none;
+}

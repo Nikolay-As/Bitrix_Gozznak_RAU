@@ -1,0 +1,109 @@
+$p: ".v-field";
+
+#{$p} {
+	font-family: $font-family-rubik;
+	font-size: $font-size-sm;
+
+	input {
+		border: 0;
+
+		&:focus {
+			box-shadow: none;
+		}
+	}
+
+	&.v-date {
+		input {
+			cursor: pointer;
+			font-size: 0.875rem;
+			color: $green;
+
+			&::placeholder {
+				color: $green;
+			}
+		}
+
+		#{$p}-control-wrapper {
+			display: flex;
+			border-bottom: 1px solid $green;
+			padding: 2px 0;
+			align-items: center;
+
+			.v-icon {
+				margin-bottom: 6px;
+			}
+		}
+
+		svg {
+			path {
+				fill: $green;
+			}
+		}
+	}
+
+	&.v-dropdown {
+		#{$p}-label {
+			font-size: $font-size-sm;
+			margin-bottom: 0.4375rem;
+			color: $dark-brown;
+		}
+
+		select {
+			background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8"><path fill="rgba(196, 196, 196, 1)" d="M6.5 8L12.9952 0.5H0.00480938L6.5 8Z"/></svg>');
+			background-color: $white;
+			background-repeat: no-repeat;
+			background-position: right .65em center;
+			border: 1px solid $border-color;
+			border-radius: 2px;
+			padding: 0.9375rem;
+			height: auto;
+			font-family: $font-family-rubik;
+			color: $dark-brown;
+
+			&:focus {
+				box-shadow: none;
+			}
+
+			&:invalid:not(:focus){
+				color: red;
+			}
+		}
+	}
+
+	&.v-text {
+		input {
+			border: 1px solid $border-color;
+			background-color: $white;
+			border-radius: 2px;
+			font-family: $font-family-rubik;
+			font-size: 0.9375rem;
+			padding: 0.8125rem 0.875rem;
+		}
+
+		#{$p}-label {
+			font-size: 0.9375rem;
+			color: $dark-brown
+		}
+	}
+
+	&--error {
+		select {
+			border-color: $red !important;
+		}
+	}
+
+	&-error-message {
+		display: flex;
+		align-items: center;
+		font-size: $font-size-sm;
+		margin-top: 1.125rem;
+
+		&__text {
+			font-weight: 300;
+		}
+
+		.v-icon {
+			margin-right: 0.625rem;
+		}
+	}
+}

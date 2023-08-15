@@ -1,0 +1,53 @@
+Options -Indexes 
+ErrorDocument 404 /404.php
+
+RedirectMatch 301 /content/news/813/(.*) /content/news/844//$1
+RedirectMatch 301 /content/news/812/(.*) /content/news/846//$1
+RedirectMatch 301 /content/news/810/(.*) /content/news/833//$1
+RedirectMatch 301 /content/news/809/(.*) /content/news/832//$1
+RedirectMatch 301 /content/news/807/(.*) /content/news/831//$1
+RedirectMatch 301 /content/news/805/(.*) /content/news/829//$1
+RedirectMatch 301 /content/news/804/(.*) /content/news/828//$1
+RedirectMatch 301 /content/news/803/(.*) /content/news/827//$1
+RedirectMatch 301 /content/news/802/(.*) /content/news/826//$1
+RedirectMatch 301 /content/news/801/(.*) /content/news/825//$1
+RedirectMatch 301 /content/news/800/(.*) /content/news/824//$1
+RedirectMatch 301 /content/news/799/(.*) /content/news/823//$1
+RedirectMatch 301 /content/news/798/(.*) /content/news/822//$1
+RedirectMatch 301 /content/news/797/(.*) /content/news/821//$1
+RedirectMatch 301 /content/news/796/(.*) /content/news/820//$1
+RedirectMatch 301 /content/news/795/(.*) /content/news/819//$1
+RedirectMatch 301 /content/news/794/(.*) /content/news/818//$1
+RedirectMatch 301 /content/news/793/(.*) /content/news/817//$1
+RedirectMatch 301 /content/news/792/(.*) /content/news/816//$1
+RedirectMatch 301 /content/news/791/(.*) /content/news/815//$1
+
+<IfModule mod_php5.c>
+	php_flag allow_call_time_pass_reference 1
+	php_flag session.use_trans_sid off
+
+	#php_value display_errors 1
+
+	#php_value mbstring.internal_encoding UTF-8
+</IfModule>
+
+<IfModule mod_rewrite.c>
+	Options +FollowSymLinks
+	RewriteEngine On
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !/bitrix/urlrewrite.php$
+	RewriteRule ^(.*)$ /bitrix/urlrewrite.php [L]
+	RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization}]
+</IfModule>
+
+<IfModule mod_dir.c>
+	DirectoryIndex index.php index.html
+</IfModule>
+
+<IfModule mod_expires.c>
+	ExpiresActive on
+	ExpiresByType image/jpeg "access plus 3 day"
+	ExpiresByType image/gif "access plus 3 day"
+</IfModule>

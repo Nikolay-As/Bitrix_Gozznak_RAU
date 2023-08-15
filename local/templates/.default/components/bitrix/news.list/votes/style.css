@@ -1,0 +1,163 @@
+#voteForm .vote_select_block {
+  position: relative;
+  display: block;
+}
+#voteForm .vote_select_block label {
+  display: inline-block;
+}
+#voteForm .vote_select_block input[type="checkbox"] {
+  display: inline-block;
+  margin-left: 5px;
+  margin-top: 4px;
+}
+
+#voteForm .vote_btns {
+  display: block;
+  position: relative;
+  text-align: center;
+  margin: 50px 0px;
+}
+#voteForm .vote_btns .vote_button {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 1.2em 2.4em;
+  background: #076857;
+  border-color: #076857;
+  border: 1px solid #076857;
+  cursor: pointer;
+}
+#voteForm .vote_btns .vote_button:hover {
+  color: #076857;
+  background: #fff;
+}
+
+.popupoverVoteError {
+  position:fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: #000;
+  opacity: 0.6;
+  z-index: 999;
+  display: none;
+}
+.popupVoteError {
+  border: 1px solid #076857;
+  display: none;
+  position: fixed;
+  top: 30%;
+  width: auto;
+  left: 40%;
+  padding: 30px 40px;
+  background-color: #fff;
+  z-index: 1000;
+}
+
+.voteResultBlocks {
+  position: relative;
+  display: block;
+  margin: 30px 0px;
+}
+.voteResultBlock {
+  position: relative;
+  display: block;
+  height: 60px;
+}
+
+.voteResultBlock .name {
+  display: inline-block;
+  line-height: 60px;
+  vertical-align: text-bottom;
+}
+.voteResultBlock .coins {
+  line-height: 60px;
+  display: inline-block;
+}
+.voteResultBlock .coins ul {
+  line-height: 60px;
+  list-style: none;
+  margin: 0px 30px;
+}
+.voteResultBlock .coins ul li {
+  display: inline-block;
+  margin: 0px;
+  background: url('/vote/2.png') no-repeat;
+/*  width: 12px;
+  height: 49px;*/
+  width: 11px;
+  height: 40px;
+}
+.voteResultBlock .coins ul li.start {
+  background: url('/vote/1.png') no-repeat;
+  width: 11px;
+  height: 40px;
+}
+.voteResultBlock .coins ul li.end {
+  background: url('/vote/3.png') no-repeat;
+  width: 17px;
+  height: 40px;
+}
+/**.voteResultBlock .coins ul li.vc3 {
+  margin: 3px 0px 0px;
+}
+.voteResultBlock .coins ul li.vc5 {
+  margin: 5px 0px 0px;
+}
+.voteResultBlock .coins ul li.vc7 {
+  margin: 7px 0px 0px;
+}
+.voteResultBlock .coins ul li.vc9 {
+  margin: 9px 0px 0px;
+}
+.voteResultBlock .coins ul li.vc10 {
+  margin: 10px 0px 0px;
+}
+.voteResultBlock .coins ul li.vc-3 {
+  margin: -3px 0px 0px;
+}
+.voteResultBlock .coins ul li.vc-5 {
+  margin: -5px 0px 0px;
+}
+.voteResultBlock .coins ul li.vc-7 {
+  margin: -7px 0px 0px;
+}
+.voteResultBlock .coins ul li.vc-9 {
+  margin: -9px 0px 0px;
+}
+.voteResultBlock .coins ul li.vc-10 {
+  margin: -10px 0px 0px;
+}*/
+.voteResultBlock .voteCount {
+  display: inline-block;
+  line-height: 60px;
+  vertical-align: text-bottom;
+}
+
+@media screen and (max-width: 1024px) {
+  .voteResultBlock .name {
+    line-height: 22px;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .voteResultBlock .coins {
+    display: block;
+    line-height: 40px;
+  }
+  .voteResultBlock .coins ul {
+    margin: 0px;
+    line-height: 40px;
+  }
+  .voteResultBlock .voteCount {
+    line-height: 40px;
+    float: right;
+    margin-top: -55px;
+  }  
+  .voteResultBlock .voteCount.empty {
+    display: block;
+    margin-top: 0px;
+    width: auto;
+    height: 25px;
+  }  
+}

@@ -1,0 +1,3 @@
+<?
+$sSectionName="Rules and recommendations";
+?>

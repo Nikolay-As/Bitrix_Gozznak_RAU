@@ -1,0 +1,17 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"СМИ о нас", 
+		"/content/news/about/", 
+		Array(), 
+		Array(), 
+		"" 
+	), Array(
+		"Фотогалерея", 
+		"/content/gallery/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

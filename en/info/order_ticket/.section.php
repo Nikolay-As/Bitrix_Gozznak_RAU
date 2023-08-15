@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Tickets";
+$arDirProperties = array(
+
+);
+?>

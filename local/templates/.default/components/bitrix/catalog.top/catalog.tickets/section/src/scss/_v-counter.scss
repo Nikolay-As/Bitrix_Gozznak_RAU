@@ -1,0 +1,64 @@
+.v-counter {
+	&-inner {
+		display: flex;
+		align-items: baseline;
+	}
+
+	&-action {
+		width: 40px;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		font-size: 2rem;
+		text-align: center;
+		background: $brown;
+		color: $white;
+		border-radius: 50%;
+		user-select: none;
+
+		&__disabled {
+			touch-action: none;
+			pointer-events: none;
+			background: $gray;
+		}
+	}
+
+	&-input {
+		width: 69px;
+		height: auto;
+		border: none;
+		font-size: 2rem;
+		text-align: center;
+
+		&, &:disabled {
+			box-shadow: none;
+			border: 0;
+			font-style: inherit;
+
+			&:focus, &:hover {
+				box-shadow: none;
+				border: 0;
+				font-style: inherit;
+			}
+		}
+	}
+
+	&-message {
+		display: flex;
+		align-items: flex-start;
+		margin-top: 0.5rem;
+
+		.v-icon {
+			margin-right: 0.75rem;
+			line-height: 12px;
+		}
+
+		&__text {
+			font-family: $font-family-rubik;
+			font-weight: 300;
+			font-size: 0.5625rem;
+		}
+	}
+}

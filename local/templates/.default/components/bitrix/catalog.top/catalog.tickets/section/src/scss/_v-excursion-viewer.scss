@@ -1,0 +1,110 @@
+$p: ".v-excursion-viewer";
+
+#{$p} {
+	&__item {
+		&-header {
+			position: relative;
+			background: $btn-bg;
+			color: $white;
+			padding: 1.25rem 1rem;
+			border-radius: 3px;
+			cursor: pointer;
+			user-select: none;
+			overflow: hidden;
+			min-height: 6.375rem;
+
+			&-background-wrap {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+			}
+
+			&-background {
+				width: 100%;
+				height: 100%;
+				right: 0;
+				position: absolute;
+				background-size: cover;
+				background-position: center;
+
+				&:after {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					bottom: 0;
+					right: 0;
+					background-color: rgba(16, 108, 92, 0.9);
+				}
+			}
+		}
+
+		&-name {
+			position: relative;
+			font-size: 1.125rem;
+		}
+
+		&-duration {
+			display: flex;
+			align-items: center;
+			margin-right: 1rem;
+
+			.v-icon {
+				line-height: 1;
+				margin-right: 1rem;
+			}
+		}
+
+		&-meta {
+			position: relative;
+			display: flex;
+			margin-top: 1rem;
+			font-weight: 300;
+			font-size: $font-size-sm;
+			font-family: $font-family-rubik;
+		}
+
+		&-collapse-btn {
+			span {
+				text-decoration: underline;
+				opacity: 0.5;
+			}
+		}
+
+		&--active {
+			.v-excursion-viewer__item-header {
+				background: $btn-bg;
+
+				&-background {
+					&:after {
+						background-color: rgba(16, 108, 92, 0.9);
+					}
+				}
+			}
+		}
+
+		+ #{$p}__item {
+			margin-top: 0.875rem;
+		}
+	}
+
+	&__tickets {
+		margin-top: 0.5625rem;
+		background: $beige-3;
+		padding: 0.25rem 1.25rem 1.375rem;
+	}
+
+	@media (max-width: 768px) {
+		&__items {
+			margin-left: -15px;
+			margin-right: -15px;
+		}
+
+		&__tickets {
+			padding-left: 0.875rem;
+			padding-right: 0.875rem;
+		}
+	}
+}

@@ -1,0 +1,129 @@
+@charset 'UTF-8';
+
+/* Slider */
+
+.slick-loading .slick-list {
+	background: #fff url('../../images/icons/ajax-loader.gif') center center no-repeat;
+}
+
+/* Arrows */
+
+.slick-prev,
+.slick-next {
+	border: 0;
+	padding: 4px 7px;
+	display: inline-block;
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	left: -27px;
+	transform: translateY(-50%);
+	color: transparent;
+	background: url(../../images/icons/prev.png) center center no-repeat !important;
+	width: 10px;
+	height: 16px;
+	box-sizing: content-box;
+}
+
+.slick-next {
+	left: auto;
+	right: -27px;
+	background: url(../../images/icons/next.png) center center no-repeat !important;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+	opacity: 0.7;
+}
+
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus {
+	outline: none;
+}
+
+[dir='rtl'] .slick-prev {
+	right: -25px;
+	left: auto;
+}
+
+.slick-prev:before {
+	content: '←';
+}
+
+[dir='rtl'] .slick-prev:before {
+	content: '→';
+}
+
+.slick-next {
+	right: -25px;
+}
+
+[dir='rtl'] .slick-next {
+	right: auto;
+	left: -25px;
+}
+
+.slick-next:before {
+	content: '→';
+}
+
+[dir='rtl'] .slick-next:before {
+	content: '←';
+}
+
+.slick-disabled,
+.slick-disabled:hover {
+	opacity: 0.4;
+	pointer-events: none;
+}
+
+/* Dots */
+
+.slick-slider {
+	margin-bottom: 30px;
+}
+
+.slick-dots {
+	display: block;
+	margin-top: 20px;
+	width: 100%;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+}
+
+.slick-dots li {
+	position: relative;
+	display: inline-block;
+	margin: 0 5px;
+	padding: 0;
+	cursor: pointer;
+}
+
+.slick-dots li button {
+	display: block;
+	width: 13px;
+	height: 13px;
+	padding: 5px;
+	cursor: pointer;
+	color: transparent;
+	border: 0;
+	outline: none;
+	background: #858787;
+	border-radius: 50%;
+}
+
+.slick-dots li button:hover {
+	background: #666;
+}
+
+.slick-dots li button:hover,
+.slick-dots li button:focus {
+	outline: none;
+}
+
+.slick-dots .slick-active button {
+	background: #23613c !important;
+}

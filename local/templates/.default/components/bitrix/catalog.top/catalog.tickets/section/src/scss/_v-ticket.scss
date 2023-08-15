@@ -1,0 +1,118 @@
+$p: ".v-ticket";
+
+#{$p} {
+	&-viewer {
+		&-header {
+			display: flex;
+			border-bottom: 1px solid $light-gray;
+
+			&__column {
+				flex-grow: 0;
+				color: $gray;
+				font-weight: 300;
+				font-family: $font-family-rubik;
+				font-size: $font-size-sm;
+				padding: 1rem 0;
+			}
+		}
+
+		.column__type, #{$p}-info {
+			margin-right: 1rem;
+			width: 50%;
+		}
+
+		.column__price, #{$p}-price {
+			width: 30%;
+			min-width: 130px;
+		}
+
+		.column__count, #{$p}-counter {
+			width: 20%;
+			min-width: 150px;
+		}
+	}
+
+	&-row {
+		display: flex;
+		padding: 1.25rem 0;
+		border-bottom: 1px solid $light-gray;
+	}
+
+	&-column {
+		display: table-cell;
+	}
+
+	&-name {
+		font-size: $font-size-lg;
+	}
+
+	&-preview-text {
+		font-family: $font-family-rubik;
+		font-size: $font-size-sm;
+		font-weight: 300;
+	}
+
+	&-price {
+		&__value {
+			font-size: 1.5rem;
+		}
+
+		&__currency-symbol {
+			font-size: 1.25rem;
+		}
+	}
+
+	@media (max-width: 1149px) {
+		&-viewer {
+			&-header {
+				display: none;
+			}
+
+			#{$p}-info, #{$p}-counter {
+				flex-basis: 50%;
+			}
+
+			#{$p}-info {
+				margin-right: 0;
+			}
+
+			#{$p}-counter {
+				display: flex;
+				justify-content: flex-end;
+				width: auto;
+				min-width: unset;
+			}
+
+			#{$p}-price {
+				order: 3;
+				flex-basis: 100%;
+			}
+
+			.v-counter {
+				&-message {
+					max-width: 128px;
+				}
+			}
+		}
+
+		&-column {
+			display: block;
+		}
+
+		&-row {
+			flex-wrap: wrap;
+		}
+	}
+
+	@media (max-width: 768px) {
+		&-viewer {
+			.v-counter-input {
+				width: 50px;
+			}
+		}
+
+		&-name {
+			font-size: $font-size;
+		}
+	}
+}

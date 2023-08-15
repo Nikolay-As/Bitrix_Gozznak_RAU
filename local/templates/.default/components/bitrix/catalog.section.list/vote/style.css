@@ -1,0 +1,29 @@
+.vote_info {
+	display: block;
+	width: 100%;
+	position: relative;
+	list-style: none;
+}
+.vote_info li {
+	display: block;
+	margin: 20px 0px;
+	width: 100%;
+}
+.vote_info li a {
+	text-decoration: none;
+}
+.vote_info li a.button {
+	text-transform: uppercase;
+	color: #076857;
+	background: #f9efd4;
+	border-radius: 0px;
+	border: 1px solid #076857;
+	min-height: 2.66667em;
+	padding: 1.2em 2.4em;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.vote_info li a.button:hover {
+	color: #f9efd4;
+	background: #076857;
+}

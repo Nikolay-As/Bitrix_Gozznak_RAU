@@ -1,0 +1,3 @@
+<?
+$sSectionName="Museum shop";
+?>

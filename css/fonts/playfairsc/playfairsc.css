@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Playfair Display SC';
+    src: local('Playfair Display SC'), local('PlayfairDisplaySC-Regular'), url('playfairdisplaysc.woff2') format('woff2'), url('playfairdisplaysc.woff') format('woff'), url('playfairdisplaysc.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Playfair Display SC';
+    src: local('Playfair Display SC Italic'), local('PlayfairDisplaySC-Italic'), url('playfairdisplayscitalic.woff2') format('woff2'), url('playfairdisplayscitalic.woff') format('woff'), url('playfairdisplayscitalic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Playfair Display SC';
+    src: local('Playfair Display SC Bold'), local('PlayfairDisplaySC-Bold'), url('playfairdisplayscbold.woff2') format('woff2'), url('playfairdisplayscbold.woff') format('woff'), url('playfairdisplayscbold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Playfair Display SC';
+    src: local('Playfair Display SC Bold Italic'), local('PlayfairDisplaySC-BoldItalic'), url('playfairdisplayscbolditalic.woff2') format('woff2'), url('playfairdisplayscbolditalic.woff') format('woff'), url('playfairdisplayscbolditalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Playfair Display SC';
+    src: local('Playfair Display SC Black'), local('PlayfairDisplaySC-Black'), url('playfairdisplayscblack.woff2') format('woff2'), url('playfairdisplayscblack.woff') format('woff'), url('playfairdisplayscblack.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Playfair Display SC';
+    src: local('Playfair Display SC Black Italic'), local('PlayfairDisplaySC-BlackItalic'), url('playfairdisplayscblackitalic.woff2') format('woff2'), url('playfairdisplayscblackitalic.woff') format('woff'), url('playfairdisplayscblackitalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}

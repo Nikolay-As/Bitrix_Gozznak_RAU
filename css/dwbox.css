@@ -1,0 +1,184 @@
+@keyframes animateShadow {
+	0%   { box-shadow: 1px 1px 30px rgba(255,255,255,.1), -1px -1px 50px rgba(255,255,255,1) }
+	100% { box-shadow: 1px 1px 20px rgba(255,255,255,.3), -1px -1px 20px rgba(255,255,255,.5) }
+}
+
+div.dwbox_overlay{
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.4);
+	z-index: 999990;
+	display: block;
+}
+
+.dwbox_content > iframe {
+	display: block;
+}
+
+div.dwbox_wrap {
+	position: absolute;
+	z-index: 999999;
+	background-color: #ffffff;
+	margin: 0px;
+	padding: 0px;	
+	width: auto;		
+	height: auto;		
+	display: block;	
+	min-height: 50px;
+	min-width: 50px;
+	overflow: hidden;
+	border-radius: 5px;
+	box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.4);
+}
+
+div.dwbox_wrap.loading {		
+	background-image: url(/images/loading.gif);
+	background-position: center;		
+	background-repeat: no-repeat;		
+	overflow:hidden;			
+	border-radius: 50%;
+	background-color: #dbdbdb;
+	border: 5px solid #dbdbdb;
+	animation: animateShadow .7s infinite;
+	animation-direction: alternate;
+	background-size: 100% 100%;
+}
+
+div.loading .dwbox_card {
+	display:none;
+}
+
+.dwbox_btn_close {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	z-index: 1;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 15px;
+	color: #23613c;
+	text-align: center;
+}
+
+.dwbox_btn_close:before {
+	content: "\f00d";
+	display: inline;
+	line-height: 35px;
+}
+
+.dwbox_btn_close:hover:before {
+	color: #44b070;
+}
+
+.dwbox_btn_prev, 
+.dwbox_btn_next {
+	width: 50%;
+	height: 100%;
+	cursor: pointer;
+	position: absolute;
+	background-position: 10px center;
+	background-repeat: no-repeat;
+	top: 0 !important;
+	display: inline-block;
+	color: #aaa;
+}
+
+.dwbox_btn_next {
+	right: 0;
+}
+
+
+.dwbox_btn_prev:after,
+.dwbox_btn_next:after {
+	content: "";
+	position: absolute;
+	display: block;
+	top: 50%;
+	margin-top: -12px;
+	width: 10px;
+    height: 16px;
+}
+
+.dwbox_btn_prev:after {
+	left: 10px;
+    background: url(/images/icons/prev.png) center center no-repeat !important;
+}
+
+.dwbox_btn_next:after {
+	right: 10px;
+    background: url(/images/icons/next.png) center center no-repeat !important;
+}
+
+.dwbox_btn_prev:before,
+.dwbox_btn_next:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 50%);
+	transition: opacity .3s;
+	z-index: 0;
+}
+
+.dwbox_btn_next:before {
+	background-image: linear-gradient(to left, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 50%);
+}
+
+.dwbox_btn_prev:hover,
+.dwbox_btn_next:hover {
+	color: #888;
+}
+
+.dwbox_btn_prev:hover:before,
+.dwbox_btn_next:hover:before {
+	opacity: 1;
+}
+
+.dwbox_title {
+	position: absolute;
+	height: 30px;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: #DADADA;
+	text-align: center;
+	line-height: 30px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 0 15px;
+	font-size: 12px;
+    font-family: 'OpenSans-Italic';
+}
+
+.dwbox_iframe {
+	width: 680px;
+	height: 480px;
+	display: block;
+}
+
+.dwbox_error {
+	height: 200px;
+	background-color: #ffffff;
+	padding: 10px;
+	width: 400px;
+	color: #F00;
+	vertical-align: middle;
+	display: table-cell;
+	text-align: center;
+	font-weight: bold;
+}

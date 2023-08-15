@@ -1,0 +1,3 @@
+<?
+$sSectionName="Thematic excursion tours";
+?>

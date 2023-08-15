@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Exhibitions";
+$arDirProperties = array(
+
+);
+?>

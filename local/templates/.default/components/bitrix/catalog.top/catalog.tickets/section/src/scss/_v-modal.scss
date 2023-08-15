@@ -1,0 +1,125 @@
+.v-modal {
+	&-mask {
+		position: fixed;
+		z-index: 9998;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.7);
+		display: table;
+		transition: opacity 0.3s ease;
+	}
+
+	&-wrapper {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	&-container {
+		width: 100%;
+		max-width: 51.25rem;
+		margin: 0 auto;
+		padding: 3.25rem 4.8125rem 5.125rem;
+		background-color: $btn-color;
+		color: $dark-brown;
+		transition: all 0.3s ease;
+		font-family: $font-family-rubik;
+		position: relative;
+	}
+
+	&-header {
+		font-family: $font-family-playfair;
+		margin-top: 0;
+		position: relative;
+		z-index: 10;
+
+		&__title {
+			line-height: 1;
+			font-size: 2.5rem;
+		}
+	}
+
+	&-body {
+		margin-top: 1.25rem;
+		position: relative;
+		z-index: 10;
+		max-width: 445px;
+	}
+
+	&-close {
+		display: inline-flex;
+		width: 10px;
+		height: 10px;
+		cursor: pointer;
+		position: absolute;
+		right: 27px;
+		top: 24px;
+		z-index: 10;
+	}
+
+	&-emblem {
+		position: absolute;
+		right: -78px;
+		top: 60px;
+		z-index: 1;
+
+		&-wrap {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			overflow: hidden;
+		}
+	}
+
+	.v-form {
+		&-text {
+			font-weight: 300;
+			font-size: $font-size-sm;
+			margin-bottom: 1.625rem;
+		}
+
+		.terms-of-purchase {
+			margin-top: 0.8125rem;
+		}
+
+		&-btn {
+			margin-top: 1.5rem;
+		}
+	}
+
+	@media (max-width: 469px) {
+		&-container {
+			padding: 2.1875rem 0.875rem;
+		}
+
+		&-header {
+			&__title {
+				font-size: 1.5rem;
+			}
+		}
+
+		&-close {
+			top: -22px;
+			right: 15px;
+
+			svg path {
+				fill: white;
+			}
+		}
+
+		&-emblem {
+			right: -200px;
+		}
+
+		.v-form {
+			&-btn {
+				.v-btn {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
