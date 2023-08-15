@@ -12,7 +12,7 @@ $APPLICATION->SetTitle("Бронирование билетов");
 			<span class="banner-buy-title">Экскурсии и программы по расписанию&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="https://museum.goznak.ru/info/order_ticket/bronirovanie/bronirovanie1.php" class="banner-buy-button"><span class="buy-button-text">Перейти</span></a>
 		</div>
 	</div>
-</div>
+</div> 
  <br>
 <div class="buy-banner-wrapper">
 	<div class="buy-banner-main">
