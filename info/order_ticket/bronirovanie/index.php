@@ -1,3 +1,4 @@
+
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Бронирование билетов");
@@ -11,10 +12,38 @@ global $DB;
 ?>
 
 <?php
-$sql = "SELECT * FROM skud_bd.application_for_excursions where status = 'По расписанию' and type =  'Обзорная экскурсия по музею' and amount_for_bron > 0";
+
+
+$curl = curl_init();
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'https://1c-devs.rauit.ru/goznak_popurey/hs/RAU_info_for_site/',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'GET',
+  CURLOPT_HTTPHEADER => array(
+    'Authorization: Basic 0J/QvtC00YDRj9C00YfQuNC6OjE0NTgq'
+  ),
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+$sql = "SELECT * FROM bitrix_65.application_for_excursions where status = 'По расписанию' and type =  'Обзорная экскурсия по музею' and amount_for_bron > 0";
 $Application_Query = $DB->Query($sql);
 
-if (count($Application_Query) > 0 and $Application_Query->fetch()['id'] > 0){
+$Application_array=array();
+
+while ($row = $Application_Query->fetch())
+{
+array_push($Application_array, $row);
+}
+
+if (count($Application_array) > 0){
   ?>
   <div class="buy-banner-wrapper">
   <div class="buy-banner-main">
@@ -28,10 +57,17 @@ if (count($Application_Query) > 0 and $Application_Query->fetch()['id'] > 0){
 <br>
 
 <?php
-$sql = "SELECT * FROM skud_bd.application_for_excursions where status = 'По расписанию' and type =  'Участие в мастер-классе по отливу бумаги' and amount_for_bron > 0";
+$sql = "SELECT * FROM bitrix_65.application_for_excursions where status = 'По расписанию' and type =  'Участие в мастер-классе по отливу бумаги' and amount_for_bron > 0";
 $Application_Query = $DB->Query($sql);
 
-if (count($Application_Query) > 0 and $Application_Query->fetch()['id'] > 0){
+$Application_array=array();
+
+while ($row = $Application_Query->fetch())
+{
+array_push($Application_array, $row);
+}
+
+if (count($Application_array) > 0){
   ?>
   <div class="buy-banner-wrapper">
   <div class="buy-banner-main">
