@@ -30,20 +30,25 @@ curl_setopt_array($curl, array(
 ));
 
 $response = curl_exec($curl);
-
 curl_close($curl);
 
-$sql = "SELECT * FROM bitrix_65.application_for_excursions where status = 'По расписанию' and type =  'Обзорная экскурсия по музею' and amount_for_bron > 0";
-$Application_Query = $DB->Query($sql);
+$response = json_decode($response);
+$flag_program = false;
+$flag_master = false;
 
-$Application_array=array();
+if (is_array($response)) {
+  foreach ($response as $line) {
+    if ($line->ВидЭкскурсии == "Обзорная экскурсия по музею"){
+      $flag_program = true;
+    }
+    if ($line->ВидЭкскурсии == "Участие в мастер-классе по отливу бумаги"){
+      $flag_master = true;
+    }
+  }
+} 
 
-while ($row = $Application_Query->fetch())
-{
-array_push($Application_array, $row);
-}
 
-if (count($Application_array) > 0){
+if ($flag_program){
   ?>
   <div class="buy-banner-wrapper">
   <div class="buy-banner-main">
@@ -57,17 +62,9 @@ if (count($Application_array) > 0){
 <br>
 
 <?php
-$sql = "SELECT * FROM bitrix_65.application_for_excursions where status = 'По расписанию' and type =  'Участие в мастер-классе по отливу бумаги' and amount_for_bron > 0";
-$Application_Query = $DB->Query($sql);
 
-$Application_array=array();
 
-while ($row = $Application_Query->fetch())
-{
-array_push($Application_array, $row);
-}
-
-if (count($Application_array) > 0){
+if ($flag_master){
   ?>
   <div class="buy-banner-wrapper">
   <div class="buy-banner-main">
