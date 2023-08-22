@@ -282,9 +282,9 @@ A {
 }
 </style>
 
-<h2>Детали заказа:	Экскурсии и программы по расписанию, 25 мая, 12:00, Информация для сайта</h2>
+<h2>Детали заказа:	<?php echo $_POST["title"] ?>, <?php echo $_POST["date"] ?> <?php echo $_POST["month"] ?>, <?php echo $_POST["time"] ?>, <?php echo $_POST["info_site"] ?></h2>
 
-<form action="action_page.php">
+<form action="ajax.php" method="post"> 
   <div class="container">
     <p>Заполните данные для получения брони</p>
     <hr>
@@ -293,10 +293,10 @@ A {
     <input type="text" placeholder="" name="" required>
 	<br>
     <label for="phone"><b>Телефонный номер</b></label>
-    <input type="text" placeholder="" name="" required>
+    <input type="tel" placeholder="(XXX)-XXX-XXXX" name="" required>
 <br>
     <label for="email"><b>Электронная почта</b></label>
-    <input type="text" placeholder="" name="" required>
+    <input type="email" placeholder="" name="" required>
 <br>
     <label for="tickets"><b>Количество билетов</b></label>
 	<select name="select">
@@ -308,13 +308,30 @@ A {
 
 <br><br>
 				<div class="venue__Button-sc-ur24e3-4 fgvyUn">
-					<button data-key="OTYzN3wxOTYzMjV8MTczMTQ3fDE2ODQ5OTgwMDAwMDA=" class="Button-sc-3k6hpk-0 Action__ActionButton-sc-1iie49r-0 __get-button__Button-sc-3tp1b1-0 bQgTwa mMNjC gfolnF SessionButton" label="[object Object]">
-						<a class="htyff" href="https://museum.goznak.ru/info/order_ticket/bronirovanie/Requisites.php"><span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Далее</span></a>
+					<button id="button" data-key="OTYzN3wxOTYzMjV8MTczMTQ3fDE2ODQ5OTgwMDAwMDA=" class="Button-sc-3k6hpk-0 Action__ActionButton-sc-1iie49r-0 __get-button__Button-sc-3tp1b1-0 bQgTwa mMNjC gfolnF SessionButton" label="[object Object]">
+						<!--<a class="htyff" href="https://museum.goznak.ru/info/order_ticket/bronirovanie/Requisites.php"><span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Далее</span></a>-->
+                        <a class="htyff" ><span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Далее</span></a>
 					</button>
 				</div>
 <br>
   <div class="container signin">
 	  <p>Нажимая "Далее", я даю согласие на обработку моих персональных данных, в соответствии с <a style="color: #000; text-decoration: underline" href="https://goznak.ru/about/today/security/">Положением об обработке и защите персональных данных в АО "Гознак"</a></p>
-  </div> 
+  </div>
+    <input type="hidden" name="date_doc" value="<?php echo $_POST["date_doc"] ?>"/>
+    <input type="hidden" name="time_doc" value="<?php echo $_POST["time_doc"] ?>"/> 
 </form>
+
+<script>
+    $('#button').click(function() {
+  //$.ajax({
+   // type: "POST",
+   // url: "ajax.php",
+   // data: { name: "John" }
+  //}).done(function( msg ) {
+    alert( "Data Saved: "  );
+  //});
+});
+
+</script>
+
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

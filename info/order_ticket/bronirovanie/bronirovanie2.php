@@ -92,7 +92,7 @@ body {font-family: Arial;}
     line-height: 24px;
     display: block;
     padding: 2px 0px 0px;
-    margin: 0px 0px 0px 60px;
+    margin: 0px 0px 0px 55px;
 }
 .gikwcU {
     color: rgb(51, 51, 51);
@@ -276,193 +276,271 @@ button {
     --order-ticket-layout-labeled-line-block-label-color: #9e9e9e;
     --order-ticket-layout-labeled-line-block-value-color: #000;
 }
+A {
+	text-decoration: none; /* Убирает подчеркивание для ссылок */
+    color: #f6e9c3; /* Ссылка красного цвета */
+} 
 </style>
 
 <body>
 
+
 <div class="buy-banner-main">
 	<div class="tab">
 
+<?php
+$months = [
+    1 => "Январь",
+    2 => "Февраль",
+    3 => "Март",
+    4 => "Апрель",
+    5 => "Май",
+    6 => "Июнь",
+    7 => "Июль",
+    8 => "Август",
+    9 => "Сентябрь",
+    10 => "Октябрь",
+    11 => "Ноябрь",
+    12 => "Декабрь",
+];
+$months_slant = [
+    "Январь" => "января",
+    "Февраль" => "февраля",
+    "Март" => "марта",
+    "Апрель" => "апреля",
+    "Май" => "мая",
+    "Июнь" => "июня",
+    "Июнь" => "июля",
+    "Август" => "августа",
+    "Сентябрь" => "сентября",
+    "Октябрь" => "октября",
+    "Ноябрь" => "ноября",
+    "Декабрь" => "декабря",
+];
 
-  <button class="tablinks" onclick="openCity(event, 'Май')" id="defaultOpen">Май</button>
-  <button class="tablinks" onclick="openCity(event, 'Июнь')">Июнь</button>
-  <button class="tablinks" onclick="openCity(event, 'Июль')">Июль</button>
+$day_of_week_array = [
+    "Monday" => "Понедельник",
+    "Tuesday" => "Вторник",
+    "Wednesday" => "Среда",
+    "Thursday" => "Четверг",
+    "Friday" => "Пятница",
+    "Saturday" => "Суббота",
+    "Sunday" => "Воскресенье"
+];
+
+ $current_number = (int)date("m");
+ $current_month = $months[$current_number];
+ if ($current_number == 12){
+    $current_month_plus_one = $months[1];
+ }else{
+    $current_month_plus_one = $months[$current_number+1];   
+ }
+
+ if ($current_number == 12){
+    $current_month_plus_two = $months[2];
+ }else if ($current_number == 11){
+    $current_month_plus_two = $months[1];  
+ }else{
+    $current_month_plus_two = $months[$current_number+2];
+ }
+
+ $curl = curl_init();
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'https://1c-devs.rauit.ru/goznak_popurey/hs/RAU_info_for_site/master_applications/',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'GET',
+  CURLOPT_HTTPHEADER => array(
+    'Authorization: Basic 0J/QvtC00YDRj9C00YfQuNC6OjE0NTgq'
+  ),
+));
+
+$response = curl_exec($curl);
+curl_close($curl);
+$response = json_decode($response);
+
+?>
+
+  <button class="tablinks" onclick="openCity(event, '<?php  echo $current_month ?>')" id="defaultOpen"><?php echo $current_month  ?></button>
+  <button class="tablinks" onclick="openCity(event, '<?php  echo $current_month_plus_one ?>')"><?php echo $current_month_plus_one  ?></button>
+  <button class="tablinks" onclick="openCity(event, '<?php  echo $current_month_plus_two ?>')"><?php echo $current_month_plus_two  ?></button>
 </div>
-</div>
-
-<div id="Май" class="tabcontent">
-	<h3>Май</h3>
-	<div class="schedule-other__ListItem-sc-1330ce-1 bqGQVz">
-		<div class="schedule-other__DateContainer-sc-1330ce-2 koXssp">
-			<div class="__get-date__Wrapper-sc-6t4w21-0 emYJqf other-schedule_session-date">
-				<span class="__get-date__Date-sc-6t4w21-1 jczLfp other-schedule_session-date_date">25</span>
-				<span class="__get-date__Day-sc-6t4w21-2 grIJFP other-schedule_session-date_day ">четверг</span>
-				<span class="__get-date__Month-sc-6t4w21-3 bVcWVs other-schedule_session-date_month">мая</span>
-			</div>
-		</div>
-		<div data-type="ScheduleOtherVenueItem" class="venue__Wrapper-sc-ur24e3-0 hHKlPr">
-			<div class="venue__Inner-sc-ur24e3-1 LgTJo">
-				<span class="venue__Time-sc-ur24e3-2 gikwcU">12:00</span>
-				<span class="venue__Time-sc-ur24e3-2 gikwcU">Информация для сайта</span>
-				<div class="venue__Main-sc-ur24e3-3 jbCZbr">
-					<div>Остаток билетов: 5</div>
-				</div>
-				<div class="venue__Button-sc-ur24e3-4 fgvyUn">
-					<button data-key="OTYzN3wxOTYzMjV8MTczMTQ3fDE2ODQ5OTgwMDAwMDA=" class="Button-sc-3k6hpk-0 Action__ActionButton-sc-1iie49r-0 __get-button__Button-sc-3tp1b1-0 bQgTwa mMNjC gfolnF SessionButton" label="[object Object]">
-						<span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Бронировать</span>
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="schedule-other__ListItem-sc-1330ce-1 bqGQVz">
-		<div class="schedule-other__DateContainer-sc-1330ce-2 koXssp">
-			<div class="__get-date__Wrapper-sc-6t4w21-0 emYJqf other-schedule_session-date">
-				<span class="__get-date__Date-sc-6t4w21-1 jczLfp other-schedule_session-date_date">26</span>
-				<span class="__get-date__Day-sc-6t4w21-2 grIJFP other-schedule_session-date_day ">пятница</span>
-				<span class="__get-date__Month-sc-6t4w21-3 bVcWVs other-schedule_session-date_month">мая</span>
-			</div>
-		</div>
-		<div data-type="ScheduleOtherVenueItem" class="venue__Wrapper-sc-ur24e3-0 hHKlPr">
-			<div class="venue__Inner-sc-ur24e3-1 LgTJo">
-				<span class="venue__Time-sc-ur24e3-2 gikwcU">12:00</span>
-				<span class="venue__Time-sc-ur24e3-2 gikwcU">Информация для сайта</span>
-				<div class="venue__Main-sc-ur24e3-3 jbCZbr">
-					<div>Остаток билетов: 10</div>
-				</div>
-				<div class="venue__Button-sc-ur24e3-4 fgvyUn">
-					<button data-key="OTYzN3wxOTYzMjV8MTczMTQ3fDE2ODQ5OTgwMDAwMDA=" class="Button-sc-3k6hpk-0 Action__ActionButton-sc-1iie49r-0 __get-button__Button-sc-3tp1b1-0 bQgTwa mMNjC gfolnF SessionButton" label="[object Object]">
-						<span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Бронировать</span>
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-<div id="Июнь" class="tabcontent">
-  <h3>Июнь</h3>
-	<div class="schedule-other__ListItem-sc-1330ce-1 bqGQVz">
-		<div class="schedule-other__DateContainer-sc-1330ce-2 koXssp">
-			<div class="__get-date__Wrapper-sc-6t4w21-0 emYJqf other-schedule_session-date">
-				<span class="__get-date__Date-sc-6t4w21-1 jczLfp other-schedule_session-date_date">1</span>
-				<span class="__get-date__Day-sc-6t4w21-2 grIJFP other-schedule_session-date_day ">четверг</span>
-				<span class="__get-date__Month-sc-6t4w21-3 bVcWVs other-schedule_session-date_month">июня</span>
-			</div>
-		</div>
-		<div data-type="ScheduleOtherVenueItem" class="venue__Wrapper-sc-ur24e3-0 hHKlPr">
-			<div class="venue__Inner-sc-ur24e3-1 LgTJo">
-				<span class="venue__Time-sc-ur24e3-2 gikwcU">12:00</span>
-				<span class="venue__Time-sc-ur24e3-2 gikwcU">Информация для сайта</span>
-				<div class="venue__Main-sc-ur24e3-3 jbCZbr">
-					<div>Остаток билетов: 8</div>
-				</div>
-				<div class="venue__Button-sc-ur24e3-4 fgvyUn">
-					<button data-key="OTYzN3wxOTYzMjV8MTczMTQ3fDE2ODQ5OTgwMDAwMDA=" class="Button-sc-3k6hpk-0 Action__ActionButton-sc-1iie49r-0 __get-button__Button-sc-3tp1b1-0 bQgTwa mMNjC gfolnF SessionButton" label="[object Object]">
-						<span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Бронировать</span>
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="schedule-other__ListItem-sc-1330ce-1 bqGQVz">
-		<div class="schedule-other__DateContainer-sc-1330ce-2 koXssp">
-			<div class="__get-date__Wrapper-sc-6t4w21-0 emYJqf other-schedule_session-date">
-				<span class="__get-date__Date-sc-6t4w21-1 jczLfp other-schedule_session-date_date">2</span>
-				<span class="__get-date__Day-sc-6t4w21-2 grIJFP other-schedule_session-date_day ">пятница</span>
-				<span class="__get-date__Month-sc-6t4w21-3 bVcWVs other-schedule_session-date_month">июня</span>
-			</div>
-		</div>
-		<div data-type="ScheduleOtherVenueItem" class="venue__Wrapper-sc-ur24e3-0 hHKlPr">
-			<div class="venue__Inner-sc-ur24e3-1 LgTJo">
-				<span class="venue__Time-sc-ur24e3-2 gikwcU">12:00</span>
-				<span class="venue__Time-sc-ur24e3-2 gikwcU">Информация для сайта</span>
-				<div class="venue__Main-sc-ur24e3-3 jbCZbr">
-					<div>Остаток билетов: 10</div>
-				</div>
-				<div class="venue__Button-sc-ur24e3-4 fgvyUn">
-					<button data-key="OTYzN3wxOTYzMjV8MTczMTQ3fDE2ODQ5OTgwMDAwMDA=" class="Button-sc-3k6hpk-0 Action__ActionButton-sc-1iie49r-0 __get-button__Button-sc-3tp1b1-0 bQgTwa mMNjC gfolnF SessionButton" label="[object Object]">
-						<span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Бронировать</span>
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
 </div>
 
-<div id="Июль" class="tabcontent">
-  <h3>Июль</h3>
+
+<?php
+if (is_array($response)) {
+    $current_month_array = array();
+    $current_month_plus_one_array = array();
+    $current_month_plus_two_array = array();
+    foreach ($response as $line){
+        $DateTime = new DateTime($line->ДатаЭкскурсии);
+        $line_month = (int)$DateTime->format("m");
+        if ($current_number == $line_month){
+            array_push($current_month_array,$line);   
+        }
+
+        if (array_search($current_month_plus_one,$months) == $line_month){
+            array_push($current_month_plus_one_array,$line);   
+        }
+
+        if (array_search($current_month_plus_two,$months) == $line_month){
+            array_push($current_month_plus_two_array,$line);   
+        }
+       
+    }
+
+
+if (count($current_month_array)>0){ ?>
+<div id="<?php echo $current_month ?>" class="tabcontent">
+<h3><?php echo $current_month ?></h3>
+    <?php 
+    foreach($current_month_array as $line_current_month){
+        $DateTime = new DateTime($line_current_month->ДатаЭкскурсии);
+        $day_of_week = $day_of_week_array[$DateTime->format('l')];
+        $day = $DateTime->format("d");
+
+        $DateTime = new DateTime($line_current_month->НачалоЭкскурсии);
+        $time = $DateTime->format("G:i"); 
+        $balance = $line_current_month->КоличествоБилетовДляБрони - $line_current_month->КоличествоБилетов; // Остаток билетов
+        ?>
+        <form action="Requisites.php" method="post">
 	<div class="schedule-other__ListItem-sc-1330ce-1 bqGQVz">
 		<div class="schedule-other__DateContainer-sc-1330ce-2 koXssp">
 			<div class="__get-date__Wrapper-sc-6t4w21-0 emYJqf other-schedule_session-date">
-				<span class="__get-date__Date-sc-6t4w21-1 jczLfp other-schedule_session-date_date">5</span>
-				<span class="__get-date__Day-sc-6t4w21-2 grIJFP other-schedule_session-date_day ">среда</span>
-				<span class="__get-date__Month-sc-6t4w21-3 bVcWVs other-schedule_session-date_month">июля</span>
+				<span class="__get-date__Date-sc-6t4w21-1 jczLfp other-schedule_session-date_date"><input type="hidden" name="date" value="<?php echo $day ?>"/><?php echo $day?></span>
+				<span class="__get-date__Day-sc-6t4w21-2 grIJFP other-schedule_session-date_day "><?php echo $day_of_week?></span>
+				<span class="__get-date__Month-sc-6t4w21-3 bVcWVs other-schedule_session-date_month"><?php echo $months_slant[$current_month]?></span>
 			</div>
 		</div>
 		<div data-type="ScheduleOtherVenueItem" class="venue__Wrapper-sc-ur24e3-0 hHKlPr">
 			<div class="venue__Inner-sc-ur24e3-1 LgTJo">
-				<span class="venue__Time-sc-ur24e3-2 gikwcU">12:00</span>
-				<span class="venue__Time-sc-ur24e3-2 gikwcU">Информация для сайта</span>
+				<span class="venue__Time-sc-ur24e3-2 gikwcU"><input type="hidden" name="time" value="<?php echo $time ?>"/><?php echo $time ?></span>
+				<span class="venue__Time-sc-ur24e3-2 gikwcU"><input type="hidden" name="info_site" value="<?php echo $line_current_month->ИнформацияДляСайта ?>"/><?php echo $line_current_month->ИнформацияДляСайта ?></span>
 				<div class="venue__Main-sc-ur24e3-3 jbCZbr">
-					<div>Остаток билетов: 9</div>
+					<div>Остаток билетов: <?php echo $balance ?></div>
 				</div>
 				<div class="venue__Button-sc-ur24e3-4 fgvyUn">
 					<button data-key="OTYzN3wxOTYzMjV8MTczMTQ3fDE2ODQ5OTgwMDAwMDA=" class="Button-sc-3k6hpk-0 Action__ActionButton-sc-1iie49r-0 __get-button__Button-sc-3tp1b1-0 bQgTwa mMNjC gfolnF SessionButton" label="[object Object]">
-						<span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Бронировать</span>
+						<a href="https://localhost/info/order_ticket/bronirovanie/Requisites.php"><span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Бронировать</span></a>
 					</button>
 				</div>
 			</div>
 		</div>
 	</div>
+    <input type="hidden" name="date_doc" value="<?php echo $line_current_month->ДатаДокумента ?>"/>
+    <input type="hidden" name="time_doc" value="<?php echo $line_current_month->НомерДокумента ?>"/>
+    <input type="hidden" name="title" value="Участие в мастер-классе"/> 
+    <input type="hidden" name="month" value="<?php echo $months_slant[$current_month]?>"/>
+    </form>
+    <?php }?>
+	
+</div>
+
+<?php }?>
+
+<?php 
+if (count($current_month_plus_one_array)>0){ ?>
+<div id="<?php echo $current_month_plus_one ?>" class="tabcontent">
+  <h3><?php echo $current_month_plus_one ?></h3>
+  <?php 
+    foreach($current_month_plus_one_array as $line_current_month){
+        $DateTime = new DateTime($line_current_month->ДатаЭкскурсии);
+        $day_of_week = $day_of_week_array[$DateTime->format('l')];
+        $day = $DateTime->format("d");
+
+        $DateTime = new DateTime($line_current_month->НачалоЭкскурсии);
+        $time = $DateTime->format("G:i"); 
+        $balance = $line_current_month->КоличествоБилетовДляБрони - $line_current_month->КоличествоБилетов; // Остаток билетов
+        ?>
+         <form action="Requisites.php" method="post">
 	<div class="schedule-other__ListItem-sc-1330ce-1 bqGQVz">
 		<div class="schedule-other__DateContainer-sc-1330ce-2 koXssp">
 			<div class="__get-date__Wrapper-sc-6t4w21-0 emYJqf other-schedule_session-date">
-				<span class="__get-date__Date-sc-6t4w21-1 jczLfp other-schedule_session-date_date">6</span>
-				<span class="__get-date__Day-sc-6t4w21-2 grIJFP other-schedule_session-date_day ">четверг</span>
-				<span class="__get-date__Month-sc-6t4w21-3 bVcWVs other-schedule_session-date_month">июля</span>
+            <span class="__get-date__Date-sc-6t4w21-1 jczLfp other-schedule_session-date_date"><input type="hidden" name="date" value="<?php echo $day ?>"/><?php echo $day?></span>
+				<span class="__get-date__Day-sc-6t4w21-2 grIJFP other-schedule_session-date_day "><?php echo $day_of_week?></span>
+				<span class="__get-date__Month-sc-6t4w21-3 bVcWVs other-schedule_session-date_month"><?php echo $months_slant[$current_month_plus_one]?></span>
 			</div>
 		</div>
 		<div data-type="ScheduleOtherVenueItem" class="venue__Wrapper-sc-ur24e3-0 hHKlPr">
 			<div class="venue__Inner-sc-ur24e3-1 LgTJo">
-				<span class="venue__Time-sc-ur24e3-2 gikwcU">12:00</span>
-				<span class="venue__Time-sc-ur24e3-2 gikwcU">Информация для сайта</span>
+            <span class="venue__Time-sc-ur24e3-2 gikwcU"><input type="hidden" name="time" value="<?php echo $time ?>"/><?php echo $time ?></span>
+			<span class="venue__Time-sc-ur24e3-2 gikwcU"><input type="hidden" name="info_site" value="<?php echo $line_current_month->ИнформацияДляСайта ?>"/><?php echo $line_current_month->ИнформацияДляСайта ?></span>
 				<div class="venue__Main-sc-ur24e3-3 jbCZbr">
-					<div>Остаток билетов: 3</div>
+					<div>Остаток билетов: <?php echo $balance ?></div>
 				</div>
 				<div class="venue__Button-sc-ur24e3-4 fgvyUn">
 					<button data-key="OTYzN3wxOTYzMjV8MTczMTQ3fDE2ODQ5OTgwMDAwMDA=" class="Button-sc-3k6hpk-0 Action__ActionButton-sc-1iie49r-0 __get-button__Button-sc-3tp1b1-0 bQgTwa mMNjC gfolnF SessionButton" label="[object Object]">
-						<span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Бронировать</span>
-					</button>
-				</div>
-			</div>
-		</div>
-	<div class="schedule-other__ListItem-sc-1330ce-1 bqGQVz">
-		<div class="schedule-other__DateContainer-sc-1330ce-2 koXssp">
-			<div class="__get-date__Wrapper-sc-6t4w21-0 emYJqf other-schedule_session-date">
-				<span class="__get-date__Date-sc-6t4w21-1 jczLfp other-schedule_session-date_date">7</span>
-				<span class="__get-date__Day-sc-6t4w21-2 grIJFP other-schedule_session-date_day ">пятница</span>
-				<span class="__get-date__Month-sc-6t4w21-3 bVcWVs other-schedule_session-date_month">июля</span>
-			</div>
-		</div>
-		<div data-type="ScheduleOtherVenueItem" class="venue__Wrapper-sc-ur24e3-0 hHKlPr">
-			<div class="venue__Inner-sc-ur24e3-1 LgTJo">
-				<span class="venue__Time-sc-ur24e3-2 gikwcU">12:00</span>
-				<span class="venue__Time-sc-ur24e3-2 gikwcU">Информация для сайта</span>
-				<div class="venue__Main-sc-ur24e3-3 jbCZbr">
-					<div>Остаток билетов: 2</div>
-				</div>
-				<div class="venue__Button-sc-ur24e3-4 fgvyUn">
-					<button data-key="OTYzN3wxOTYzMjV8MTczMTQ3fDE2ODQ5OTgwMDAwMDA=" class="Button-sc-3k6hpk-0 Action__ActionButton-sc-1iie49r-0 __get-button__Button-sc-3tp1b1-0 bQgTwa mMNjC gfolnF SessionButton" label="[object Object]">
-						<span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Бронировать</span>
+						<a href="https://museum.goznak.ru/info/order_ticket/bronirovanie/Requisites.php"><span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Бронировать</span></a>
 					</button>
 				</div>
 			</div>
 		</div>
 	</div>
+    <input type="hidden" name="date_doc" value="<?php echo $line_current_month->ДатаДокумента ?>"/>
+    <input type="hidden" name="time_doc" value="<?php echo $line_current_month->НомерДокумента ?>"/>
+    <input type="hidden" name="title" value="Участие в мастер-классе"/> 
+    <input type="hidden" name="month" value="<?php echo $months_slant[$current_month]?>"/>
+    </form>
+    <?php }?>
 </div>
+
+<?php }?>
+
+
+<?php 
+if (count($current_month_plus_two_array)>0){ ?>
+<div id="<?php echo $current_month_plus_two ?>" class="tabcontent">
+  <h3><?php echo $current_month_plus_two ?></h3>
+  <?php 
+    foreach($current_month_plus_two_array as $line_current_month){
+        $DateTime = new DateTime($line_current_month->ДатаЭкскурсии);
+        $day_of_week = $day_of_week_array[$DateTime->format('l')];
+        $day = $DateTime->format("d");
+
+        $DateTime = new DateTime($line_current_month->НачалоЭкскурсии);
+        $time = $DateTime->format("G:i"); 
+        $balance = $line_current_month->КоличествоБилетовДляБрони - $line_current_month->КоличествоБилетов; // Остаток билетов
+        ?>
+         <form action="Requisites.php" method="post">
+	<div class="schedule-other__ListItem-sc-1330ce-1 bqGQVz">
+		<div class="schedule-other__DateContainer-sc-1330ce-2 koXssp">
+			<div class="__get-date__Wrapper-sc-6t4w21-0 emYJqf other-schedule_session-date">
+            <span class="__get-date__Date-sc-6t4w21-1 jczLfp other-schedule_session-date_date"><input type="hidden" name="date" value="<?php echo $day ?>"/><?php echo $day?></span>
+				<span class="__get-date__Day-sc-6t4w21-2 grIJFP other-schedule_session-date_day "><?php echo $day_of_week?></span>
+				<span class="__get-date__Month-sc-6t4w21-3 bVcWVs other-schedule_session-date_month"><?php echo $months_slant[$current_month_plus_two]?></span>
+			</div>
+		</div>
+		<div data-type="ScheduleOtherVenueItem" class="venue__Wrapper-sc-ur24e3-0 hHKlPr">
+			<div class="venue__Inner-sc-ur24e3-1 LgTJo">
+            <span class="venue__Time-sc-ur24e3-2 gikwcU"><input type="hidden" name="time" value="<?php echo $time ?>"/><?php echo $time ?></span>
+				<span class="venue__Time-sc-ur24e3-2 gikwcU"><input type="hidden" name="info_site" value="<?php echo $line_current_month->ИнформацияДляСайта ?>"/><?php echo $line_current_month->ИнформацияДляСайта ?></span>
+				<div class="venue__Main-sc-ur24e3-3 jbCZbr">
+					<div>Остаток билетов: <?php echo $balance ?></div>
+				</div>
+				<div class="venue__Button-sc-ur24e3-4 fgvyUn">
+					<button data-key="OTYzN3wxOTYzMjV8MTczMTQ3fDE2ODQ5OTgwMDAwMDA=" class="Button-sc-3k6hpk-0 Action__ActionButton-sc-1iie49r-0 __get-button__Button-sc-3tp1b1-0 bQgTwa mMNjC gfolnF SessionButton" label="[object Object]">
+						<a href="https://museum.goznak.ru/info/order_ticket/bronirovanie/Requisites.php"><span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Бронировать</span></a>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+    <input type="hidden" name="date_doc" value="<?php echo $line_current_month->ДатаДокумента ?>"/>
+    <input type="hidden" name="time_doc" value="<?php echo $line_current_month->НомерДокумента ?>"/>
+    <input type="hidden" name="title" value="Участие в мастер-классе"/> 
+    <input type="hidden" name="month" value="<?php echo $months_slant[$current_month]?>"/>
+    </form>
+    <?php }?>
 </div>
+
+<?php }?>
+<?php }?>
+
 <script>
 function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
