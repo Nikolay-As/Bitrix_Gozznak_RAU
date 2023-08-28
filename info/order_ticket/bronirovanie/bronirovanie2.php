@@ -1,5 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+require 'constants.php';
 $APPLICATION->SetTitle("Участие в мастер-классе");
 ?>
 <style>
@@ -368,7 +369,7 @@ $day_of_week_array = [
 
  $curl = curl_init();
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://1c-devs.rauit.ru/goznak_popurey/hs/RAU_info_for_site/master_applications/',
+  CURLOPT_URL => $url_1c.'/goznak_popurey/hs/RAU_info_for_site/master_applications/',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -456,7 +457,7 @@ if (count($current_month_array)>0){ ?>
 				</div>
 				<div class="venue__Button-sc-ur24e3-4 fgvyUn">
 					<button data-key="OTYzN3wxOTYzMjV8MTczMTQ3fDE2ODQ5OTgwMDAwMDA=" class="Button-sc-3k6hpk-0 Action__ActionButton-sc-1iie49r-0 __get-button__Button-sc-3tp1b1-0 bQgTwa mMNjC gfolnF SessionButton" label="[object Object]">
-						<a href="https://192.168.2.253/info/order_ticket/bronirovanie/Requisites.php"><span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Бронировать</span></a>
+						<a href=<?php echo $url_site."/info/order_ticket/bronirovanie/Requisites.php"?>><span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Бронировать</span></a>
 					</button>
 				</div>
 			</div>
@@ -505,7 +506,7 @@ if (count($current_month_plus_one_array)>0){ ?>
 				</div>
 				<div class="venue__Button-sc-ur24e3-4 fgvyUn">
 					<button data-key="OTYzN3wxOTYzMjV8MTczMTQ3fDE2ODQ5OTgwMDAwMDA=" class="Button-sc-3k6hpk-0 Action__ActionButton-sc-1iie49r-0 __get-button__Button-sc-3tp1b1-0 bQgTwa mMNjC gfolnF SessionButton" label="[object Object]">
-						<a href="https://museum.goznak.ru/info/order_ticket/bronirovanie/Requisites.php"><span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Бронировать</span></a>
+						<a href=<?php echo $url_site."/info/order_ticket/bronirovanie/Requisites.php"?>><span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Бронировать</span></a>
 					</button>
 				</div>
 			</div>
@@ -554,7 +555,7 @@ if (count($current_month_plus_two_array)>0){ ?>
 				</div>
 				<div class="venue__Button-sc-ur24e3-4 fgvyUn">
 					<button data-key="OTYzN3wxOTYzMjV8MTczMTQ3fDE2ODQ5OTgwMDAwMDA=" class="Button-sc-3k6hpk-0 Action__ActionButton-sc-1iie49r-0 __get-button__Button-sc-3tp1b1-0 bQgTwa mMNjC gfolnF SessionButton" label="[object Object]">
-						<a href="https://museum.goznak.ru/info/order_ticket/bronirovanie/Requisites.php"><span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Бронировать</span></a>
+						<a href=<?php echo $url_site."/info/order_ticket/bronirovanie/Requisites.php"?>><span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Бронировать</span></a>
 					</button>
 				</div>
 			</div>

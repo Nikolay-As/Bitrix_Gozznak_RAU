@@ -1,5 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+require 'constants.php';
 $APPLICATION->SetTitle("Реквизиты");
 ?>
 <style>
@@ -291,7 +292,7 @@ A {
         
         $array_2 = json_encode($array);	
          
-        $ch = curl_init('https://1c-devs.rauit.ru/goznak_popurey/hs/RAU_info_for_site/time_reservation');
+        $ch = curl_init($url_1c.'/goznak_popurey/hs/RAU_info_for_site/time_reservation');
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $array_2);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
