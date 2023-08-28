@@ -53,7 +53,7 @@ if ($flag_program){
   <div class="buy-banner-wrapper">
   <div class="buy-banner-main">
     <div class="text-content-wrapper">
-      <span class="banner-buy-title">Экскурсии и программы по расписанию&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="https://localhost/info/order_ticket/bronirovanie/bronirovanie1.php" class="banner-buy-button"><span class="buy-button-text">Перейти</span></a>
+      <span class="banner-buy-title">Экскурсии и программы по расписанию&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="https://192.168.2.253/info/order_ticket/bronirovanie/bronirovanie1.php" class="banner-buy-button"><span class="buy-button-text">Перейти</span></a>
     </div> 
   </div>
 </div>
@@ -69,7 +69,7 @@ if ($flag_master){
   <div class="buy-banner-wrapper">
   <div class="buy-banner-main">
     <div class="text-content-wrapper">
-       <span class="banner-buy-title">Участие в мастер-классе&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="https://localhost/info/order_ticket/bronirovanie/bronirovanie2.php" class="banner-buy-button"><span class="buy-button-text">Перейти</span></a>
+       <span class="banner-buy-title">Участие в мастер-классе&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="https://192.168.2.253/info/order_ticket/bronirovanie/bronirovanie2.php" class="banner-buy-button"><span class="buy-button-text">Перейти</span></a>
     </div>
   </div>
 </div>

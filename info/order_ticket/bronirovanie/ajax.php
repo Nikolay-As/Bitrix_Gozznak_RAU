@@ -1,10 +1,13 @@
 <?php
-    //function abc($name){
         $array = array(
-            'login'    => 'admin',
-            'password' => '1234'
+            'fio'    => $_POST["fio"],
+            'tel'    => $_POST["tel"],
+            'email'    => $_POST["email"],
+            'select'    => $_POST["select"],
+            'date_doc'    => $_POST["date_doc"],
+            'number_doc'    => $_POST["number_doc"]
         );	
-        //$array_1 = json_decode($array);
+        
         $array_2 = json_encode($array);	
          
         $ch = curl_init('https://1c-devs.rauit.ru/goznak_popurey/hs/RAU_info_for_site/reservation');
@@ -24,8 +27,9 @@ curl_close($ch);
 $response = json_decode($response);
 ?>
 <script>
-    alert("dffd")
+   
 </script>
 <?php
-   include 'index.php';
+    header("Location: index.php");
+
 ?>

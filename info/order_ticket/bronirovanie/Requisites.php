@@ -282,6 +282,32 @@ A {
 }
 </style>
 
+<?php
+        $array = array(
+            'select'    => 4,
+            'date_doc'    => $_POST["date_doc"],
+            'number_doc'    => $_POST["number_doc"]
+        );	
+        
+        $array_2 = json_encode($array);	
+         
+        $ch = curl_init('https://1c-devs.rauit.ru/goznak_popurey/hs/RAU_info_for_site/time_reservation');
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $array_2);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Authorization: Basic 0J/QvtC00YDRj9C00YfQuNC6OjE0NTgq'
+          ));
+        
+       
+    
+
+$response = curl_exec($ch);
+curl_close($ch);
+$response = json_decode($response);
+?>
+
 <h2>Детали заказа:	<?php echo $_POST["title"] ?>, <?php echo $_POST["date"] ?> <?php echo $_POST["month"] ?>, <?php echo $_POST["time"] ?>, <?php echo $_POST["info_site"] ?></h2>
 
 <form action="ajax.php" method="post"> 
@@ -290,20 +316,20 @@ A {
     <hr>
 
     <label for="fio"><b>ФИО</b></label>
-    <input type="text" placeholder="" name="" required>
+    <input type="text" placeholder="" name="fio" required>
 	<br>
     <label for="phone"><b>Телефонный номер</b></label>
-    <input type="tel" placeholder="(XXX)-XXX-XXXX" name="" required>
+    <input type="tel" placeholder="(XXX)-XXX-XXXX" name="tel" required>
 <br>
     <label for="email"><b>Электронная почта</b></label>
-    <input type="email" placeholder="" name="" required>
+    <input type="email" placeholder="" name="email" required>
 <br>
     <label for="tickets"><b>Количество билетов</b></label>
 	<select name="select">
-		<option value="value1" selected>1 билет</option>
-	  	<option value="value2">2 билета</option>
-	  	<option value="value3">3 билета</option>
-	  	<option value="value4">4 билета</option>
+		<option value="1" selected>1 билет</option>
+	  	<option value="2">2 билета</option>
+	  	<option value="3">3 билета</option>
+	  	<option value="4">4 билета</option>
 	</select>
 
 <br><br>
@@ -318,20 +344,8 @@ A {
 	  <p>Нажимая "Далее", я даю согласие на обработку моих персональных данных, в соответствии с <a style="color: #000; text-decoration: underline" href="https://goznak.ru/about/today/security/">Положением об обработке и защите персональных данных в АО "Гознак"</a></p>
   </div>
     <input type="hidden" name="date_doc" value="<?php echo $_POST["date_doc"] ?>"/>
-    <input type="hidden" name="time_doc" value="<?php echo $_POST["time_doc"] ?>"/> 
+    <input type="hidden" name="number_doc" value="<?php echo $_POST["number_doc"] ?>"/> 
 </form>
 
-<script>
-    $('#button').click(function() {
-  //$.ajax({
-   // type: "POST",
-   // url: "ajax.php",
-   // data: { name: "John" }
-  //}).done(function( msg ) {
-    alert( "Data Saved: "  );
-  //});
-});
-
-</script>
 
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

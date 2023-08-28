@@ -289,6 +289,28 @@ A {
 	<div class="tab">
 
 <?php
+function sort_buble($data) 
+{
+    $count_elements = count($data); 
+    $iterations = $count_elements - 1;
+
+    for ($i=0; $i < $count_elements; $i++) {
+        $changes = false;
+        for ($j=0; $j < $iterations; $j++) {
+            if ((int)$data[$j]->ДатаЭкскурсии[8].$data[$j]->ДатаЭкскурсии[9] < (int)$data[$j+1]->ДатаДокумента[8].$data[$j+1]->ДатаДокумента[9]) {
+                $changes = true;
+                list($data[$j], $data[($j + 1)]) = array($data[($j + 1)], $data[$j]);
+            }
+        }
+        $iterations--;
+        if (!$changes) {
+            return $data;
+        }
+    }        
+    return $data;
+}
+
+
 $months = [
     1 => "Январь",
     2 => "Февраль",
@@ -363,16 +385,6 @@ $response = curl_exec($curl);
 curl_close($curl);
 $response = json_decode($response);
 
-?>
-
-  <button class="tablinks" onclick="openCity(event, '<?php  echo $current_month ?>')" id="defaultOpen"><?php echo $current_month  ?></button>
-  <button class="tablinks" onclick="openCity(event, '<?php  echo $current_month_plus_one ?>')"><?php echo $current_month_plus_one  ?></button>
-  <button class="tablinks" onclick="openCity(event, '<?php  echo $current_month_plus_two ?>')"><?php echo $current_month_plus_two  ?></button>
-</div>
-</div>
-
-
-<?php
 if (is_array($response)) {
     $current_month_array = array();
     $current_month_plus_one_array = array();
@@ -394,6 +406,24 @@ if (is_array($response)) {
        
     }
 
+    $current_month_array = sort_buble($current_month_array);
+    $current_month_plus_one_array = sort_buble($current_month_plus_one_array);
+    $current_month_plus_two_array = sort_buble($current_month_plus_two_array);
+
+    if (count($current_month_array)>0){ 
+        ?>
+        
+          <button class="tablinks" onclick="openCity(event, '<?php  echo $current_month ?>')" id="defaultOpen"><?php echo $current_month  ?></button>
+          <?php }  if (count($current_month_plus_one_array)>0){  ?>
+          <button class="tablinks" onclick="openCity(event, '<?php  echo $current_month_plus_one ?>')" id="defaultOpen"><?php echo $current_month_plus_one  ?></button>
+          <?php }  if (count($current_month_plus_two_array)>0){  ?>
+          <button class="tablinks" onclick="openCity(event, '<?php  echo $current_month_plus_two ?>')" id="defaultOpen"><?php echo $current_month_plus_two  ?></button>
+          <?php }  ?>
+        </div>
+</div>
+
+
+<?php
 
 if (count($current_month_array)>0){ ?>
 <div id="<?php echo $current_month ?>" class="tabcontent">
@@ -406,7 +436,7 @@ if (count($current_month_array)>0){ ?>
 
         $DateTime = new DateTime($line_current_month->НачалоЭкскурсии);
         $time = $DateTime->format("G:i"); 
-        $balance = $line_current_month->КоличествоБилетовДляБрони - $line_current_month->КоличествоБилетов; // Остаток билетов
+        $balance = $line_current_month->КоличествоБилетовДляБрони ;//- $line_current_month->КоличествоБилетов; // Остаток билетов
         ?>
         <form action="Requisites.php" method="post">
 	<div class="schedule-other__ListItem-sc-1330ce-1 bqGQVz">
@@ -426,14 +456,14 @@ if (count($current_month_array)>0){ ?>
 				</div>
 				<div class="venue__Button-sc-ur24e3-4 fgvyUn">
 					<button data-key="OTYzN3wxOTYzMjV8MTczMTQ3fDE2ODQ5OTgwMDAwMDA=" class="Button-sc-3k6hpk-0 Action__ActionButton-sc-1iie49r-0 __get-button__Button-sc-3tp1b1-0 bQgTwa mMNjC gfolnF SessionButton" label="[object Object]">
-						<a href="https://localhost/info/order_ticket/bronirovanie/Requisites.php"><span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Бронировать</span></a>
+						<a href="https://192.168.2.253/info/order_ticket/bronirovanie/Requisites.php"><span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Бронировать</span></a>
 					</button>
 				</div>
 			</div>
 		</div>
 	</div>
     <input type="hidden" name="date_doc" value="<?php echo $line_current_month->ДатаДокумента ?>"/>
-    <input type="hidden" name="time_doc" value="<?php echo $line_current_month->НомерДокумента ?>"/>
+    <input type="hidden" name="number_doc" value="<?php echo $line_current_month->НомерДокумента ?>"/>
     <input type="hidden" name="title" value="Участие в мастер-классе"/> 
     <input type="hidden" name="month" value="<?php echo $months_slant[$current_month]?>"/>
     </form>
@@ -455,7 +485,7 @@ if (count($current_month_plus_one_array)>0){ ?>
 
         $DateTime = new DateTime($line_current_month->НачалоЭкскурсии);
         $time = $DateTime->format("G:i"); 
-        $balance = $line_current_month->КоличествоБилетовДляБрони - $line_current_month->КоличествоБилетов; // Остаток билетов
+        $balance = $line_current_month->КоличествоБилетовДляБрони ;//- $line_current_month->КоличествоБилетов; // Остаток билетов
         ?>
          <form action="Requisites.php" method="post">
 	<div class="schedule-other__ListItem-sc-1330ce-1 bqGQVz">
@@ -482,9 +512,9 @@ if (count($current_month_plus_one_array)>0){ ?>
 		</div>
 	</div>
     <input type="hidden" name="date_doc" value="<?php echo $line_current_month->ДатаДокумента ?>"/>
-    <input type="hidden" name="time_doc" value="<?php echo $line_current_month->НомерДокумента ?>"/>
+    <input type="hidden" name="number_doc" value="<?php echo $line_current_month->НомерДокумента ?>"/>
     <input type="hidden" name="title" value="Участие в мастер-классе"/> 
-    <input type="hidden" name="month" value="<?php echo $months_slant[$current_month]?>"/>
+    <input type="hidden" name="month" value="<?php echo $months_slant[$current_month_plus_one]?>"/>
     </form>
     <?php }?>
 </div>
@@ -504,7 +534,7 @@ if (count($current_month_plus_two_array)>0){ ?>
 
         $DateTime = new DateTime($line_current_month->НачалоЭкскурсии);
         $time = $DateTime->format("G:i"); 
-        $balance = $line_current_month->КоличествоБилетовДляБрони - $line_current_month->КоличествоБилетов; // Остаток билетов
+        $balance = $line_current_month->КоличествоБилетовДляБрони ;//- $line_current_month->КоличествоБилетов; // Остаток билетов
         ?>
          <form action="Requisites.php" method="post">
 	<div class="schedule-other__ListItem-sc-1330ce-1 bqGQVz">
@@ -531,9 +561,9 @@ if (count($current_month_plus_two_array)>0){ ?>
 		</div>
 	</div>
     <input type="hidden" name="date_doc" value="<?php echo $line_current_month->ДатаДокумента ?>"/>
-    <input type="hidden" name="time_doc" value="<?php echo $line_current_month->НомерДокумента ?>"/>
+    <input type="hidden" name="number_doc" value="<?php echo $line_current_month->НомерДокумента ?>"/>
     <input type="hidden" name="title" value="Участие в мастер-классе"/> 
-    <input type="hidden" name="month" value="<?php echo $months_slant[$current_month]?>"/>
+    <input type="hidden" name="month" value="<?php echo $months_slant[$current_month_plus_two]?>"/>
     </form>
     <?php }?>
 </div>
