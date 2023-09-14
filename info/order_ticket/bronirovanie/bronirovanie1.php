@@ -299,7 +299,7 @@ function sort_buble($data)
         for ($i=0; $i < $count_elements; $i++) {
             $changes = false;
             for ($j=0; $j < $iterations; $j++) {
-                if ((int)$data[$j]->ДатаЭкскурсии[8].$data[$j]->ДатаЭкскурсии[9] < (int)$data[$j+1]->ДатаДокумента[8].$data[$j+1]->ДатаДокумента[9]) {
+                if ((int)$data[$j]->ДатаЭкскурсии[8].$data[$j]->ДатаЭкскурсии[9] > (int)$data[$j+1]->ДатаЭкскурсии[8].$data[$j+1]->ДатаЭкскурсии[9]) {
                     $changes = true;
                     list($data[$j], $data[($j + 1)]) = array($data[($j + 1)], $data[$j]);
                 }
