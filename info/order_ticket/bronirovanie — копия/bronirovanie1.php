@@ -1,8 +1,9 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 require 'constants.php';
-$APPLICATION->SetTitle("Участие в мастер-классе");
-?><style>
+$APPLICATION->SetTitle("Экскурсии и программы по расписанию");
+?>
+<style>
 body {font-family: Arial;}
 /* Style the tab */
 .tab {
@@ -289,27 +290,28 @@ A {
 	<div class="tab">
 
 <?php
+
 function sort_buble($data) 
-{
-    $count_elements = count($data); 
-    $iterations = $count_elements - 1;
+    {
+        $count_elements = count($data); 
+        $iterations = $count_elements - 1;
 
-    for ($i=0; $i < $count_elements; $i++) {
-        $changes = false;
-        for ($j=0; $j < $iterations; $j++) {
-            if ((int)$data[$j]->ДатаЭкскурсии[8].$data[$j]->ДатаЭкскурсии[9] > (int)$data[$j+1]->ДатаЭкскурсии[8].$data[$j+1]->ДатаЭкскурсии[9]) {
-                $changes = true;
-                list($data[$j], $data[($j + 1)]) = array($data[($j + 1)], $data[$j]);
+        for ($i=0; $i < $count_elements; $i++) {
+            $changes = false;
+            for ($j=0; $j < $iterations; $j++) {
+                if ((int)$data[$j]->ДатаЭкскурсии[8].$data[$j]->ДатаЭкскурсии[9] > (int)$data[$j+1]->ДатаЭкскурсии[8].$data[$j+1]->ДатаЭкскурсии[9]) {
+                    $changes = true;
+                    list($data[$j], $data[($j + 1)]) = array($data[($j + 1)], $data[$j]);
+                }
             }
-        }
-        $iterations--;
-        if (!$changes) {
-            return $data;
-        }
-    }        
-    return $data;
-}
-
+            $iterations--;
+            if (!$changes) {
+                return $data;
+            }
+        }        
+        return $data;
+    }
+    
 
 $months = [
     1 => "Январь",
@@ -368,7 +370,7 @@ $day_of_week_array = [
 
  $curl = curl_init();
 curl_setopt_array($curl, array(
-  CURLOPT_URL => $url_1c.'/Goznak/hs/RAU_info_for_site/master_applications/',
+  CURLOPT_URL => $url_1c.'/goznak_popurey/hs/RAU_info_for_site/program_applications/',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -405,25 +407,25 @@ if (is_array($response)) {
         }
        
     }
-
     $current_month_array = sort_buble($current_month_array);
     $current_month_plus_one_array = sort_buble($current_month_plus_one_array);
     $current_month_plus_two_array = sort_buble($current_month_plus_two_array);
 
     if (count($current_month_array)>0){ 
-        ?>
-        
-          <button class="tablinks" onclick="openCity(event, '<?php  echo $current_month ?>')" id="defaultOpen"><?php echo $current_month  ?></button>
-          <?php }  if (count($current_month_plus_one_array)>0){  ?>
-          <button class="tablinks" onclick="openCity(event, '<?php  echo $current_month_plus_one ?>')" id="defaultOpen"><?php echo $current_month_plus_one  ?></button>
-          <?php }  if (count($current_month_plus_two_array)>0){  ?>
-          <button class="tablinks" onclick="openCity(event, '<?php  echo $current_month_plus_two ?>')" id="defaultOpen"><?php echo $current_month_plus_two  ?></button>
-          <?php }  ?>
-        </div>
+?>
+
+  <button class="tablinks" onclick="openCity(event, '<?php  echo $current_month ?>')" id="defaultOpen"><?php echo $current_month  ?></button>
+  <?php }  if (count($current_month_plus_one_array)>0){  ?>
+  <button class="tablinks" onclick="openCity(event, '<?php  echo $current_month_plus_one ?>')" id="defaultOpen"><?php echo $current_month_plus_one  ?></button>
+  <?php }  if (count($current_month_plus_two_array)>0){  ?>
+  <button class="tablinks" onclick="openCity(event, '<?php  echo $current_month_plus_two ?>')" id="defaultOpen"><?php echo $current_month_plus_two  ?></button>
+  <?php }  ?>
+</div>
 </div>
 
 
 <?php
+
 
 if (count($current_month_array)>0){ ?>
 <div id="<?php echo $current_month ?>" class="tabcontent">
@@ -456,7 +458,7 @@ if (count($current_month_array)>0){ ?>
 				</div>
 				<div class="venue__Button-sc-ur24e3-4 fgvyUn">
 					<button data-key="OTYzN3wxOTYzMjV8MTczMTQ3fDE2ODQ5OTgwMDAwMDA=" class="Button-sc-3k6hpk-0 Action__ActionButton-sc-1iie49r-0 __get-button__Button-sc-3tp1b1-0 bQgTwa mMNjC gfolnF SessionButton" label="[object Object]">
-						<a href=<?php echo $url_site."/info/order_ticket/bronirovanie/Requisites.php"?>><span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Бронировать</span></a>
+						<a href=<?php echo $url_site."/info/order_ticket/bronirovanie/Requisites.php" ?>><span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Бронировать</span></a>
 					</button>
 				</div>
 			</div>
@@ -464,9 +466,9 @@ if (count($current_month_array)>0){ ?>
 	</div>
     <input type="hidden" name="date_doc" value="<?php echo $line_current_month->ДатаДокумента ?>"/>
     <input type="hidden" name="number_doc" value="<?php echo $line_current_month->НомерДокумента ?>"/>
-    <input type="hidden" name="title" value="Участие в мастер-классе"/> 
+    <input type="hidden" name="title" value="Экскурсии и программы по расписанию"/>
     <input type="hidden" name="month" value="<?php echo $months_slant[$current_month]?>"/>
-    <input type="hidden" name="balance" value="<?php echo $balance?>"/>
+    <input type="hidden" name="balance" value="<?php echo $balance?>"/>  
     </form>
     <?php }?>
 	
@@ -506,7 +508,7 @@ if (count($current_month_plus_one_array)>0){ ?>
 				</div>
 				<div class="venue__Button-sc-ur24e3-4 fgvyUn">
 					<button data-key="OTYzN3wxOTYzMjV8MTczMTQ3fDE2ODQ5OTgwMDAwMDA=" class="Button-sc-3k6hpk-0 Action__ActionButton-sc-1iie49r-0 __get-button__Button-sc-3tp1b1-0 bQgTwa mMNjC gfolnF SessionButton" label="[object Object]">
-						<a href=<?php echo $url_site."/info/order_ticket/bronirovanie/Requisites.php"?>><span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Бронировать</span></a>
+						<a href=<?php echo $url_site."/info/order_ticket/bronirovanie/Requisites.php" ?>><span data-component="CommonPrice" class="Price__Root-sc-gcvzz1-0 kHCDzl">Бронировать</span></a>
 					</button>
 				</div>
 			</div>
@@ -514,9 +516,9 @@ if (count($current_month_plus_one_array)>0){ ?>
 	</div>
     <input type="hidden" name="date_doc" value="<?php echo $line_current_month->ДатаДокумента ?>"/>
     <input type="hidden" name="number_doc" value="<?php echo $line_current_month->НомерДокумента ?>"/>
-    <input type="hidden" name="title" value="Участие в мастер-классе"/> 
+    <input type="hidden" name="title" value="Экскурсии и программы по расписанию"/>
     <input type="hidden" name="month" value="<?php echo $months_slant[$current_month_plus_one]?>"/>
-    <input type="hidden" name="balance" value="<?php echo $balance?>"/>
+    <input type="hidden" name="balance" value="<?php echo $balance?>"/>  
     </form>
     <?php }?>
 </div>
@@ -564,11 +566,11 @@ if (count($current_month_plus_two_array)>0){ ?>
 	</div>
     <input type="hidden" name="date_doc" value="<?php echo $line_current_month->ДатаДокумента ?>"/>
     <input type="hidden" name="number_doc" value="<?php echo $line_current_month->НомерДокумента ?>"/>
-    <input type="hidden" name="title" value="Участие в мастер-классе"/> 
+    <input type="hidden" name="title" value="Экскурсии и программы по расписанию"/>
     <input type="hidden" name="month" value="<?php echo $months_slant[$current_month_plus_two]?>"/>
-    <input type="hidden" name="balance" value="<?php echo $balance?>"/>
+    <input type="hidden" name="balance" value="<?php echo $balance?>"/>  
     </form>
-    <?php }?>
+    <?php }?> 
 </div>
 
 <?php }?>

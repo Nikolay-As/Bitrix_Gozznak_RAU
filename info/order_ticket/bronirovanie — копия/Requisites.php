@@ -2,7 +2,8 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 require 'constants.php';
 $APPLICATION->SetTitle("Реквизиты");
-?><style>
+?>
+<style>
 body {font-family: Arial;}
 /* Style the tab */
 .tab {
@@ -283,14 +284,15 @@ A {
 </style>
 
 <?php
-    $array_balance = array(
+
+$array_balance = array(
     'date_doc'    => $_POST["date_doc"],
     'number_doc'    => $_POST["number_doc"]
 );	
 
 $array_balance_2 = json_encode($array_balance);	
  
-$ch_response_balance = curl_init($url_1c.'/Goznak/hs/RAU_BalanceOrder/balance_order');
+$ch_response_balance = curl_init($url_1c.'/goznak_popurey/hs/RAU_BalanceOrder/balance_order');
 curl_setopt($ch_response_balance, CURLOPT_POST, 1);
 curl_setopt($ch_response_balance, CURLOPT_POSTFIELDS, $array_balance_2);
 curl_setopt($ch_response_balance, CURLOPT_RETURNTRANSFER, true);
@@ -311,8 +313,9 @@ curl_setopt($ch_response_balance, CURLOPT_HTTPHEADER, array(
     }
 
     if($balance == 0 ){
-        header("Location: https://museum.goznak.ru/info/order_ticket/bronirovanie/index.php");
-	}else{
+        header("Location: https://localhost/info/order_ticket/bronirovanie/index.php");
+    }
+
         $array = array(
             'select'    => $balance,
             'date_doc'    => $_POST["date_doc"],
@@ -320,8 +323,8 @@ curl_setopt($ch_response_balance, CURLOPT_HTTPHEADER, array(
         );	
         
         $array_2 = json_encode($array);	
-
-        $ch = curl_init($url_1c.'/Goznak/hs/RAU_info_for_site/time_reservation');
+         
+        $ch = curl_init($url_1c.'/goznak_popurey/hs/RAU_info_for_site/time_reservation');
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $array_2);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -329,7 +332,6 @@ curl_setopt($ch_response_balance, CURLOPT_HTTPHEADER, array(
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             'Authorization: Basic 0J/QvtC00YDRj9C00YfQuNC6OjE0NTgq'
           ));
-
         
        
     
@@ -337,7 +339,6 @@ curl_setopt($ch_response_balance, CURLOPT_HTTPHEADER, array(
 $response = curl_exec($ch);
 curl_close($ch);
 $response = json_decode($response);
-}
 ?>
 
 <h2>Детали заказа:	<?php echo $_POST["title"] ?>, <?php echo $_POST["date"] ?> <?php echo $_POST["month"] ?>, <?php echo $_POST["time"] ?>, <?php echo $_POST["info_site"] ?></h2>

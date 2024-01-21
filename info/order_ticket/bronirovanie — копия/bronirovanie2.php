@@ -2,7 +2,8 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 require 'constants.php';
 $APPLICATION->SetTitle("Участие в мастер-классе");
-?><style>
+?>
+<style>
 body {font-family: Arial;}
 /* Style the tab */
 .tab {
@@ -368,7 +369,7 @@ $day_of_week_array = [
 
  $curl = curl_init();
 curl_setopt_array($curl, array(
-  CURLOPT_URL => $url_1c.'/Goznak/hs/RAU_info_for_site/master_applications/',
+  CURLOPT_URL => $url_1c.'/goznak_popurey/hs/RAU_info_for_site/master_applications/',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,

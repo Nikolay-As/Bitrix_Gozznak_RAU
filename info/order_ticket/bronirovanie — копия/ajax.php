@@ -11,7 +11,7 @@ require 'constants.php';
         
         $array_2 = json_encode($array);	
          
-        $ch = curl_init($url_1c.'/Goznak/hs/RAU_info_for_site/reservation');
+        $ch = curl_init($url_1c.'/goznak_popurey/hs/RAU_info_for_site/reservation');
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $array_2);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

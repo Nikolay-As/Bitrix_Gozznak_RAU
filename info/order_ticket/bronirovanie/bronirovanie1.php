@@ -2,8 +2,7 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 require 'constants.php';
 $APPLICATION->SetTitle("Экскурсии и программы по расписанию");
-?>
-<style>
+?><style>
 body {font-family: Arial;}
 /* Style the tab */
 .tab {
@@ -370,7 +369,7 @@ $day_of_week_array = [
 
  $curl = curl_init();
 curl_setopt_array($curl, array(
-  CURLOPT_URL => $url_1c.'/goznak_popurey/hs/RAU_info_for_site/program_applications/',
+  CURLOPT_URL => $url_1c.'/Goznak/hs/RAU_info_for_site/program_applications/',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -467,7 +466,8 @@ if (count($current_month_array)>0){ ?>
     <input type="hidden" name="date_doc" value="<?php echo $line_current_month->ДатаДокумента ?>"/>
     <input type="hidden" name="number_doc" value="<?php echo $line_current_month->НомерДокумента ?>"/>
     <input type="hidden" name="title" value="Экскурсии и программы по расписанию"/>
-    <input type="hidden" name="month" value="<?php echo $months_slant[$current_month]?>"/> 
+    <input type="hidden" name="month" value="<?php echo $months_slant[$current_month]?>"/>
+    <input type="hidden" name="balance" value="<?php echo $balance?>"/>  
     </form>
     <?php }?>
 	
@@ -516,7 +516,8 @@ if (count($current_month_plus_one_array)>0){ ?>
     <input type="hidden" name="date_doc" value="<?php echo $line_current_month->ДатаДокумента ?>"/>
     <input type="hidden" name="number_doc" value="<?php echo $line_current_month->НомерДокумента ?>"/>
     <input type="hidden" name="title" value="Экскурсии и программы по расписанию"/>
-    <input type="hidden" name="month" value="<?php echo $months_slant[$current_month_plus_one]?>"/> 
+    <input type="hidden" name="month" value="<?php echo $months_slant[$current_month_plus_one]?>"/>
+    <input type="hidden" name="balance" value="<?php echo $balance?>"/>  
     </form>
     <?php }?>
 </div>
@@ -565,7 +566,8 @@ if (count($current_month_plus_two_array)>0){ ?>
     <input type="hidden" name="date_doc" value="<?php echo $line_current_month->ДатаДокумента ?>"/>
     <input type="hidden" name="number_doc" value="<?php echo $line_current_month->НомерДокумента ?>"/>
     <input type="hidden" name="title" value="Экскурсии и программы по расписанию"/>
-    <input type="hidden" name="month" value="<?php echo $months_slant[$current_month_plus_two]?>"/> 
+    <input type="hidden" name="month" value="<?php echo $months_slant[$current_month_plus_two]?>"/>
+    <input type="hidden" name="balance" value="<?php echo $balance?>"/>  
     </form>
     <?php }?> 
 </div>

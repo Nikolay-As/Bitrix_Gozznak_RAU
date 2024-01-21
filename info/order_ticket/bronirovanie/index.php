@@ -1,23 +1,18 @@
-
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 require 'constants.php';
 $APPLICATION->SetTitle("Бронирование билетов");
-?>
-<p>
-Выкупить билет в кассе Музея истории денег необходимо не позднее, чем за 10 минут до начала события. Опоздавшие к началу сеанса не будут допущены до участия в мероприятии.
+?><p>
+ <b>Выкупить</b> билет в кассе Музея истории денег необходимо <b>не позднее, чем за 15 минут</b><b> до начала событи</b><b>я</b>. Опоздавшие к началу сеанса не будут допущены до участия в мероприятии.
 </p>
-<body>
-<?php // Попурей НД РАУ 46444
+ <?php // Попурей НД РАУ 46444
 global $DB;
-?>
-
-<?php
+?> <?php
 
 
 $curl = curl_init();
 curl_setopt_array($curl, array(
-  CURLOPT_URL => $url_1c.'/goznak_popurey/hs/RAU_info_for_site/all_applications/',
+  CURLOPT_URL => $url_1c.'/Goznak/hs/RAU_info_for_site/all_applications/',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -47,34 +42,19 @@ if (is_array($response)) {
     }
   }
 } 
-
-
-if ($flag_program){
-  ?>
-  <div class="buy-banner-wrapper">
-  <div class="buy-banner-main">
-    <div class="text-content-wrapper">
-      <span class="banner-buy-title">Экскурсии и программы по расписанию&nbsp;&nbsp;&nbsp;&nbsp;</span><a href=<?php echo $url_site."/info/order_ticket/bronirovanie/bronirovanie1.php"?> class="banner-buy-button"><span class="buy-button-text">Перейти</span></a>
-    </div> 
-  </div>
+?>
+<div class="buy-banner-wrapper">
+	<div class="buy-banner-main">
+		<div class="text-content-wrapper">
+ <span class="banner-buy-title">Экскурсии и программы по расписанию&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/info/order_ticket/bronirovanie/bronirovanie1.php" class="banner-buy-button"><span class="buy-button-text">Бронировать</span></a>
+		</div>
+	</div>
+</div><br>
+<div class="buy-banner-wrapper">
+	<div class="buy-banner-main">
+		<div class="text-content-wrapper">
+ <span class="banner-buy-title">Участие в мастер-классе&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/info/order_ticket/bronirovanie/bronirovanie2.php" class="banner-buy-button"><span class="buy-button-text">Бронировать</span></a>
+		</div>
+	</div>
 </div>
-<?php } ?>
-
-<br>
-
-<?php
-
-
-if ($flag_master){
-  ?>
-  <div class="buy-banner-wrapper">
-  <div class="buy-banner-main">
-    <div class="text-content-wrapper">
-       <span class="banner-buy-title">Участие в мастер-классе&nbsp;&nbsp;&nbsp;&nbsp;</span><a href=<?php echo $url_site."/info/order_ticket/bronirovanie/bronirovanie2.php"?> class="banner-buy-button"><span class="buy-button-text">Перейти</span></a>
-    </div>
-  </div>
-</div>
-<?php } ?>
-
-
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
