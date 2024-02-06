@@ -17,7 +17,7 @@ global $DB;
 
 $curl = curl_init();
 curl_setopt_array($curl, array(
-  CURLOPT_URL => $url_1c.'/goznak_popurey/hs/RAU_info_for_site/all_applications/',
+  CURLOPT_URL => $url_1c.'/hs/RAU_info_for_site/all_applications/',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,

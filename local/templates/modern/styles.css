@@ -34,6 +34,18 @@
     background: url(./images/banner-background.png) 50% 50% no-repeat;
     background-size: cover;
 }
+
+.buy-banner-wrapper .buy-banner-main_cancel { /* Попурей НД 48264 */
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-around;
+    min-height: 100px;
+    overflow: hidden;
+    background: #7e6c44;
+    background-size: cover;
+}
+
 .buy-banner-wrapper .text-content-wrapper {
     display: flex;
     width: 100%;

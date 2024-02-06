@@ -369,7 +369,7 @@ $day_of_week_array = [
 
  $curl = curl_init();
 curl_setopt_array($curl, array(
-  CURLOPT_URL => $url_1c.'/Goznak/hs/RAU_info_for_site/program_applications/',
+  CURLOPT_URL => $url_1c.'/hs/RAU_info_for_site/program_applications/',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,

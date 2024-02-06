@@ -2,17 +2,14 @@
 
         require 'constants.php';
         $array = array(
-            'fio'    => $_POST["fio"],
             'tel'    => $_POST["tel"],
             'email'    => $_POST["email"],
-            'select'    => $_POST["select"],
-            'date_doc'    => $_POST["date_doc"],
-            'number_doc'    => $_POST["number_doc"]
+            'number_order'    => $_POST["number_order"]
         );
 
         $array_2 = json_encode($array);
 
-        $ch = curl_init($url_1c . '/hs/RAU_info_for_site/reservation');
+        $ch = curl_init($url_1c . '/hs/RAU_info_for_site/cansel_reservation');
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $array_2);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -23,7 +20,11 @@
 
         $response = curl_exec($ch);
         curl_close($ch);
-        echo $response;
+        if ($response === "Да") {
+            echo 1;
+        } else{
+            echo 0;
+        }
     ?>
 <?php
 /*header("Location: index.php");*/
